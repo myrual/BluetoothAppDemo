@@ -14,13 +14,14 @@
 		F245F45B184CC97C005467BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F45A184CC97C005467BA /* main.m */; };
 		F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F45E184CC97C005467BA /* cryptolaliaAppDelegate.m */; };
 		F245F462184CC97C005467BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F245F460184CC97C005467BA /* Main.storyboard */; };
-		F245F465184CC97C005467BA /* cryptolaliaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F464184CC97C005467BA /* cryptolaliaViewController.m */; };
 		F245F467184CC97C005467BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F245F466184CC97C005467BA /* Images.xcassets */; };
 		F245F46E184CC97C005467BA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F46D184CC97C005467BA /* XCTest.framework */; };
 		F245F46F184CC97C005467BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F44E184CC97C005467BA /* Foundation.framework */; };
 		F245F470184CC97C005467BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F452184CC97C005467BA /* UIKit.framework */; };
 		F245F478184CC97C005467BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F245F476184CC97C005467BA /* InfoPlist.strings */; };
 		F245F47A184CC97C005467BA /* tableviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F479184CC97C005467BA /* tableviewTests.m */; };
+		F245F486184CC9B5005467BA /* cryptolaliaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F484184CC9B5005467BA /* cryptolaliaViewController.m */; };
+		F245F487184CC9B5005467BA /* cryptolaliaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F245F485184CC9B5005467BA /* cryptolaliaViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +46,15 @@
 		F245F45D184CC97C005467BA /* cryptolaliaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cryptolaliaAppDelegate.h; sourceTree = "<group>"; };
 		F245F45E184CC97C005467BA /* cryptolaliaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cryptolaliaAppDelegate.m; sourceTree = "<group>"; };
 		F245F461184CC97C005467BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F245F463184CC97C005467BA /* cryptolaliaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cryptolaliaViewController.h; sourceTree = "<group>"; };
-		F245F464184CC97C005467BA /* cryptolaliaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cryptolaliaViewController.m; sourceTree = "<group>"; };
 		F245F466184CC97C005467BA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F245F46C184CC97C005467BA /* tableviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tableviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F245F46D184CC97C005467BA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F245F475184CC97C005467BA /* tableviewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tableviewTests-Info.plist"; sourceTree = "<group>"; };
 		F245F477184CC97C005467BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F245F479184CC97C005467BA /* tableviewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tableviewTests.m; sourceTree = "<group>"; };
+		F245F483184CC9B5005467BA /* cryptolaliaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cryptolaliaViewController.h; path = ../cryptolaliaViewController.h; sourceTree = "<group>"; };
+		F245F484184CC9B5005467BA /* cryptolaliaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cryptolaliaViewController.m; path = ../cryptolaliaViewController.m; sourceTree = "<group>"; };
+		F245F485184CC9B5005467BA /* cryptolaliaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = cryptolaliaViewController.xib; path = ../cryptolaliaViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +114,12 @@
 		F245F454184CC97C005467BA /* tableview */ = {
 			isa = PBXGroup;
 			children = (
+				F245F483184CC9B5005467BA /* cryptolaliaViewController.h */,
+				F245F484184CC9B5005467BA /* cryptolaliaViewController.m */,
+				F245F485184CC9B5005467BA /* cryptolaliaViewController.xib */,
 				F245F45D184CC97C005467BA /* cryptolaliaAppDelegate.h */,
 				F245F45E184CC97C005467BA /* cryptolaliaAppDelegate.m */,
 				F245F460184CC97C005467BA /* Main.storyboard */,
-				F245F463184CC97C005467BA /* cryptolaliaViewController.h */,
-				F245F464184CC97C005467BA /* cryptolaliaViewController.m */,
 				F245F466184CC97C005467BA /* Images.xcassets */,
 				F245F455184CC97C005467BA /* Supporting Files */,
 			);
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F245F467184CC97C005467BA /* Images.xcassets in Resources */,
+				F245F487184CC9B5005467BA /* cryptolaliaViewController.xib in Resources */,
 				F245F459184CC97C005467BA /* InfoPlist.strings in Resources */,
 				F245F462184CC97C005467BA /* Main.storyboard in Resources */,
 			);
@@ -250,7 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F245F465184CC97C005467BA /* cryptolaliaViewController.m in Sources */,
+				F245F486184CC9B5005467BA /* cryptolaliaViewController.m in Sources */,
 				F245F45B184CC97C005467BA /* main.m in Sources */,
 				F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */,
 			);

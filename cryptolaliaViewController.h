@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface cryptolaliaViewController : UIViewController
+@interface cryptolaliaViewController : UITableViewController
 
 @end

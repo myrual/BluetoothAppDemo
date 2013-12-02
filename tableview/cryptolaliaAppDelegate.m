@@ -7,12 +7,17 @@
 //
 
 #import "cryptolaliaAppDelegate.h"
+#import "cryptolaliaViewController.h"
 
 @implementation cryptolaliaAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    cryptolaliaViewController *pvc = [[cryptolaliaViewController alloc] initWithNibName:@"cryptolaliaViewController" bundle:nil];
+    UINavigationController  *rootvc = [[UINavigationController alloc] initWithRootViewController:pvc];
+    self.window.rootViewController = rootvc;
     return YES;
 }
 							
