@@ -22,6 +22,8 @@
 		F245F47A184CC97C005467BA /* tableviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F479184CC97C005467BA /* tableviewTests.m */; };
 		F245F486184CC9B5005467BA /* cryptolaliaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F484184CC9B5005467BA /* cryptolaliaViewController.m */; };
 		F245F487184CC9B5005467BA /* cryptolaliaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F245F485184CC9B5005467BA /* cryptolaliaViewController.xib */; };
+		F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F489184CCCB7005467BA /* cryptolaliaInputPin.m */; };
+		F245F48C184CCCB7005467BA /* cryptolaliaInputPin.xib in Resources */ = {isa = PBXBuildFile; fileRef = F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		F245F483184CC9B5005467BA /* cryptolaliaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cryptolaliaViewController.h; path = ../cryptolaliaViewController.h; sourceTree = "<group>"; };
 		F245F484184CC9B5005467BA /* cryptolaliaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cryptolaliaViewController.m; path = ../cryptolaliaViewController.m; sourceTree = "<group>"; };
 		F245F485184CC9B5005467BA /* cryptolaliaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = cryptolaliaViewController.xib; path = ../cryptolaliaViewController.xib; sourceTree = "<group>"; };
+		F245F488184CCCB7005467BA /* cryptolaliaInputPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cryptolaliaInputPin.h; sourceTree = "<group>"; };
+		F245F489184CCCB7005467BA /* cryptolaliaInputPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cryptolaliaInputPin.m; sourceTree = "<group>"; };
+		F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cryptolaliaInputPin.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +119,9 @@
 		F245F454184CC97C005467BA /* tableview */ = {
 			isa = PBXGroup;
 			children = (
+				F245F488184CCCB7005467BA /* cryptolaliaInputPin.h */,
+				F245F489184CCCB7005467BA /* cryptolaliaInputPin.m */,
+				F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */,
 				F245F483184CC9B5005467BA /* cryptolaliaViewController.h */,
 				F245F484184CC9B5005467BA /* cryptolaliaViewController.m */,
 				F245F485184CC9B5005467BA /* cryptolaliaViewController.xib */,
@@ -233,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F245F467184CC97C005467BA /* Images.xcassets in Resources */,
+				F245F48C184CCCB7005467BA /* cryptolaliaInputPin.xib in Resources */,
 				F245F487184CC9B5005467BA /* cryptolaliaViewController.xib in Resources */,
 				F245F459184CC97C005467BA /* InfoPlist.strings in Resources */,
 				F245F462184CC97C005467BA /* Main.storyboard in Resources */,
@@ -257,6 +266,7 @@
 				F245F486184CC9B5005467BA /* cryptolaliaViewController.m in Sources */,
 				F245F45B184CC97C005467BA /* main.m in Sources */,
 				F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */,
+				F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
