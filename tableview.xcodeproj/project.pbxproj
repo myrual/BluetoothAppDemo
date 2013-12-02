@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F245F44F184CC97C005467BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F44E184CC97C005467BA /* Foundation.framework */; };
+		F245F451184CC97C005467BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F450184CC97C005467BA /* CoreGraphics.framework */; };
+		F245F453184CC97C005467BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F452184CC97C005467BA /* UIKit.framework */; };
+		F245F459184CC97C005467BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F245F457184CC97C005467BA /* InfoPlist.strings */; };
+		F245F45B184CC97C005467BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F45A184CC97C005467BA /* main.m */; };
+		F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F45E184CC97C005467BA /* cryptolaliaAppDelegate.m */; };
+		F245F462184CC97C005467BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F245F460184CC97C005467BA /* Main.storyboard */; };
+		F245F465184CC97C005467BA /* cryptolaliaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F464184CC97C005467BA /* cryptolaliaViewController.m */; };
+		F245F467184CC97C005467BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F245F466184CC97C005467BA /* Images.xcassets */; };
+		F245F46E184CC97C005467BA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F46D184CC97C005467BA /* XCTest.framework */; };
+		F245F46F184CC97C005467BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F44E184CC97C005467BA /* Foundation.framework */; };
+		F245F470184CC97C005467BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F452184CC97C005467BA /* UIKit.framework */; };
+		F245F478184CC97C005467BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F245F476184CC97C005467BA /* InfoPlist.strings */; };
+		F245F47A184CC97C005467BA /* tableviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F479184CC97C005467BA /* tableviewTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F245F471184CC97C005467BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F245F443184CC97C005467BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F245F44A184CC97C005467BA;
+			remoteInfo = tableview;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F245F44B184CC97C005467BA /* tableview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tableview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F245F44E184CC97C005467BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F245F450184CC97C005467BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F245F452184CC97C005467BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F245F456184CC97C005467BA /* tableview-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tableview-Info.plist"; sourceTree = "<group>"; };
+		F245F458184CC97C005467BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F245F45A184CC97C005467BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F245F45C184CC97C005467BA /* tableview-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tableview-Prefix.pch"; sourceTree = "<group>"; };
+		F245F45D184CC97C005467BA /* cryptolaliaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cryptolaliaAppDelegate.h; sourceTree = "<group>"; };
+		F245F45E184CC97C005467BA /* cryptolaliaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cryptolaliaAppDelegate.m; sourceTree = "<group>"; };
+		F245F461184CC97C005467BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F245F463184CC97C005467BA /* cryptolaliaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cryptolaliaViewController.h; sourceTree = "<group>"; };
+		F245F464184CC97C005467BA /* cryptolaliaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cryptolaliaViewController.m; sourceTree = "<group>"; };
+		F245F466184CC97C005467BA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F245F46C184CC97C005467BA /* tableviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tableviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F245F46D184CC97C005467BA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F245F475184CC97C005467BA /* tableviewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tableviewTests-Info.plist"; sourceTree = "<group>"; };
+		F245F477184CC97C005467BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F245F479184CC97C005467BA /* tableviewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tableviewTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F245F448184CC97C005467BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F245F451184CC97C005467BA /* CoreGraphics.framework in Frameworks */,
+				F245F453184CC97C005467BA /* UIKit.framework in Frameworks */,
+				F245F44F184CC97C005467BA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F245F469184CC97C005467BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F245F46E184CC97C005467BA /* XCTest.framework in Frameworks */,
+				F245F470184CC97C005467BA /* UIKit.framework in Frameworks */,
+				F245F46F184CC97C005467BA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F245F442184CC97C005467BA = {
+			isa = PBXGroup;
+			children = (
+				F245F454184CC97C005467BA /* tableview */,
+				F245F473184CC97C005467BA /* tableviewTests */,
+				F245F44D184CC97C005467BA /* Frameworks */,
+				F245F44C184CC97C005467BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F245F44C184CC97C005467BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F245F44B184CC97C005467BA /* tableview.app */,
+				F245F46C184CC97C005467BA /* tableviewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F245F44D184CC97C005467BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F245F44E184CC97C005467BA /* Foundation.framework */,
+				F245F450184CC97C005467BA /* CoreGraphics.framework */,
+				F245F452184CC97C005467BA /* UIKit.framework */,
+				F245F46D184CC97C005467BA /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F245F454184CC97C005467BA /* tableview */ = {
+			isa = PBXGroup;
+			children = (
+				F245F45D184CC97C005467BA /* cryptolaliaAppDelegate.h */,
+				F245F45E184CC97C005467BA /* cryptolaliaAppDelegate.m */,
+				F245F460184CC97C005467BA /* Main.storyboard */,
+				F245F463184CC97C005467BA /* cryptolaliaViewController.h */,
+				F245F464184CC97C005467BA /* cryptolaliaViewController.m */,
+				F245F466184CC97C005467BA /* Images.xcassets */,
+				F245F455184CC97C005467BA /* Supporting Files */,
+			);
+			path = tableview;
+			sourceTree = "<group>";
+		};
+		F245F455184CC97C005467BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F245F456184CC97C005467BA /* tableview-Info.plist */,
+				F245F457184CC97C005467BA /* InfoPlist.strings */,
+				F245F45A184CC97C005467BA /* main.m */,
+				F245F45C184CC97C005467BA /* tableview-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F245F473184CC97C005467BA /* tableviewTests */ = {
+			isa = PBXGroup;
+			children = (
+				F245F479184CC97C005467BA /* tableviewTests.m */,
+				F245F474184CC97C005467BA /* Supporting Files */,
+			);
+			path = tableviewTests;
+			sourceTree = "<group>";
+		};
+		F245F474184CC97C005467BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F245F475184CC97C005467BA /* tableviewTests-Info.plist */,
+				F245F476184CC97C005467BA /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F245F44A184CC97C005467BA /* tableview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F245F47D184CC97C005467BA /* Build configuration list for PBXNativeTarget "tableview" */;
+			buildPhases = (
+				F245F447184CC97C005467BA /* Sources */,
+				F245F448184CC97C005467BA /* Frameworks */,
+				F245F449184CC97C005467BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tableview;
+			productName = tableview;
+			productReference = F245F44B184CC97C005467BA /* tableview.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F245F46B184CC97C005467BA /* tableviewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F245F480184CC97C005467BA /* Build configuration list for PBXNativeTarget "tableviewTests" */;
+			buildPhases = (
+				F245F468184CC97C005467BA /* Sources */,
+				F245F469184CC97C005467BA /* Frameworks */,
+				F245F46A184CC97C005467BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F245F472184CC97C005467BA /* PBXTargetDependency */,
+			);
+			name = tableviewTests;
+			productName = tableviewTests;
+			productReference = F245F46C184CC97C005467BA /* tableviewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F245F443184CC97C005467BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = cryptolalia;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "li lin";
+				TargetAttributes = {
+					F245F46B184CC97C005467BA = {
+						TestTargetID = F245F44A184CC97C005467BA;
+					};
+				};
+			};
+			buildConfigurationList = F245F446184CC97C005467BA /* Build configuration list for PBXProject "tableview" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F245F442184CC97C005467BA;
+			productRefGroup = F245F44C184CC97C005467BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F245F44A184CC97C005467BA /* tableview */,
+				F245F46B184CC97C005467BA /* tableviewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F245F449184CC97C005467BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F245F467184CC97C005467BA /* Images.xcassets in Resources */,
+				F245F459184CC97C005467BA /* InfoPlist.strings in Resources */,
+				F245F462184CC97C005467BA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F245F46A184CC97C005467BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F245F478184CC97C005467BA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F245F447184CC97C005467BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F245F465184CC97C005467BA /* cryptolaliaViewController.m in Sources */,
+				F245F45B184CC97C005467BA /* main.m in Sources */,
+				F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F245F468184CC97C005467BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F245F47A184CC97C005467BA /* tableviewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F245F472184CC97C005467BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F245F44A184CC97C005467BA /* tableview */;
+			targetProxy = F245F471184CC97C005467BA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F245F457184CC97C005467BA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F245F458184CC97C005467BA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F245F460184CC97C005467BA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F245F461184CC97C005467BA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F245F476184CC97C005467BA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F245F477184CC97C005467BA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F245F47B184CC97C005467BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F245F47C184CC97C005467BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F245F47E184CC97C005467BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tableview/tableview-Prefix.pch";
+				INFOPLIST_FILE = "tableview/tableview-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F245F47F184CC97C005467BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tableview/tableview-Prefix.pch";
+				INFOPLIST_FILE = "tableview/tableview-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F245F481184CC97C005467BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/tableview.app/tableview";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tableview/tableview-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "tableviewTests/tableviewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F245F482184CC97C005467BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/tableview.app/tableview";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tableview/tableview-Prefix.pch";
+				INFOPLIST_FILE = "tableviewTests/tableviewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F245F446184CC97C005467BA /* Build configuration list for PBXProject "tableview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F245F47B184CC97C005467BA /* Debug */,
+				F245F47C184CC97C005467BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F245F47D184CC97C005467BA /* Build configuration list for PBXNativeTarget "tableview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F245F47E184CC97C005467BA /* Debug */,
+				F245F47F184CC97C005467BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F245F480184CC97C005467BA /* Build configuration list for PBXNativeTarget "tableviewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F245F481184CC97C005467BA /* Debug */,
+				F245F482184CC97C005467BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F245F443184CC97C005467BA /* Project object */;
+}
