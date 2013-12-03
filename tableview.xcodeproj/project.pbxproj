@@ -24,6 +24,15 @@
 		F245F487184CC9B5005467BA /* cryptolaliaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F245F485184CC9B5005467BA /* cryptolaliaViewController.xib */; };
 		F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F489184CCCB7005467BA /* cryptolaliaInputPin.m */; };
 		F245F48C184CCCB7005467BA /* cryptolaliaInputPin.xib in Resources */ = {isa = PBXBuildFile; fileRef = F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */; };
+		F245F4A0184DAFF4005467BA /* NSMutableArray+fifoQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F48F184DAFF4005467BA /* NSMutableArray+fifoQueue.m */; };
+		F245F4A1184DAFF4005467BA /* YMS128.c in Sources */ = {isa = PBXBuildFile; fileRef = F245F490184DAFF4005467BA /* YMS128.c */; };
+		F245F4A2184DAFF4005467BA /* YMSCBCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F493184DAFF4005467BA /* YMSCBCentralManager.m */; };
+		F245F4A3184DAFF4005467BA /* YMSCBCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F495184DAFF4005467BA /* YMSCBCharacteristic.m */; };
+		F245F4A4184DAFF4005467BA /* YMSCBDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F497184DAFF4005467BA /* YMSCBDescriptor.m */; };
+		F245F4A5184DAFF4005467BA /* YMSCBPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F499184DAFF4005467BA /* YMSCBPeripheral.m */; };
+		F245F4A6184DAFF4005467BA /* YMSCBService.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F49B184DAFF4005467BA /* YMSCBService.m */; };
+		F245F4A7184DAFF4005467BA /* YMSCBStoredPeripherals.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F49D184DAFF4005467BA /* YMSCBStoredPeripherals.m */; };
+		F245F4A8184DAFF4005467BA /* YMSCBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F49F184DAFF4005467BA /* YMSCBUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +69,24 @@
 		F245F488184CCCB7005467BA /* cryptolaliaInputPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cryptolaliaInputPin.h; sourceTree = "<group>"; };
 		F245F489184CCCB7005467BA /* cryptolaliaInputPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cryptolaliaInputPin.m; sourceTree = "<group>"; };
 		F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cryptolaliaInputPin.xib; sourceTree = "<group>"; };
+		F245F48E184DAFF4005467BA /* NSMutableArray+fifoQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+fifoQueue.h"; sourceTree = "<group>"; };
+		F245F48F184DAFF4005467BA /* NSMutableArray+fifoQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+fifoQueue.m"; sourceTree = "<group>"; };
+		F245F490184DAFF4005467BA /* YMS128.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = YMS128.c; sourceTree = "<group>"; };
+		F245F491184DAFF4005467BA /* YMS128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMS128.h; sourceTree = "<group>"; };
+		F245F492184DAFF4005467BA /* YMSCBCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBCentralManager.h; sourceTree = "<group>"; };
+		F245F493184DAFF4005467BA /* YMSCBCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBCentralManager.m; sourceTree = "<group>"; };
+		F245F494184DAFF4005467BA /* YMSCBCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBCharacteristic.h; sourceTree = "<group>"; };
+		F245F495184DAFF4005467BA /* YMSCBCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBCharacteristic.m; sourceTree = "<group>"; };
+		F245F496184DAFF4005467BA /* YMSCBDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBDescriptor.h; sourceTree = "<group>"; };
+		F245F497184DAFF4005467BA /* YMSCBDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBDescriptor.m; sourceTree = "<group>"; };
+		F245F498184DAFF4005467BA /* YMSCBPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBPeripheral.h; sourceTree = "<group>"; };
+		F245F499184DAFF4005467BA /* YMSCBPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBPeripheral.m; sourceTree = "<group>"; };
+		F245F49A184DAFF4005467BA /* YMSCBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBService.h; sourceTree = "<group>"; };
+		F245F49B184DAFF4005467BA /* YMSCBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBService.m; sourceTree = "<group>"; };
+		F245F49C184DAFF4005467BA /* YMSCBStoredPeripherals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBStoredPeripherals.h; sourceTree = "<group>"; };
+		F245F49D184DAFF4005467BA /* YMSCBStoredPeripherals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBStoredPeripherals.m; sourceTree = "<group>"; };
+		F245F49E184DAFF4005467BA /* YMSCBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBUtils.h; sourceTree = "<group>"; };
+		F245F49F184DAFF4005467BA /* YMSCBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +146,7 @@
 		F245F454184CC97C005467BA /* tableview */ = {
 			isa = PBXGroup;
 			children = (
+				F245F48D184DAFF4005467BA /* YmsCoreBluetooth */,
 				F245F488184CCCB7005467BA /* cryptolaliaInputPin.h */,
 				F245F489184CCCB7005467BA /* cryptolaliaInputPin.m */,
 				F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */,
@@ -161,6 +189,31 @@
 				F245F476184CC97C005467BA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F245F48D184DAFF4005467BA /* YmsCoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				F245F48E184DAFF4005467BA /* NSMutableArray+fifoQueue.h */,
+				F245F48F184DAFF4005467BA /* NSMutableArray+fifoQueue.m */,
+				F245F490184DAFF4005467BA /* YMS128.c */,
+				F245F491184DAFF4005467BA /* YMS128.h */,
+				F245F492184DAFF4005467BA /* YMSCBCentralManager.h */,
+				F245F493184DAFF4005467BA /* YMSCBCentralManager.m */,
+				F245F494184DAFF4005467BA /* YMSCBCharacteristic.h */,
+				F245F495184DAFF4005467BA /* YMSCBCharacteristic.m */,
+				F245F496184DAFF4005467BA /* YMSCBDescriptor.h */,
+				F245F497184DAFF4005467BA /* YMSCBDescriptor.m */,
+				F245F498184DAFF4005467BA /* YMSCBPeripheral.h */,
+				F245F499184DAFF4005467BA /* YMSCBPeripheral.m */,
+				F245F49A184DAFF4005467BA /* YMSCBService.h */,
+				F245F49B184DAFF4005467BA /* YMSCBService.m */,
+				F245F49C184DAFF4005467BA /* YMSCBStoredPeripherals.h */,
+				F245F49D184DAFF4005467BA /* YMSCBStoredPeripherals.m */,
+				F245F49E184DAFF4005467BA /* YMSCBUtils.h */,
+				F245F49F184DAFF4005467BA /* YMSCBUtils.m */,
+			);
+			path = YmsCoreBluetooth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +316,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F245F4A2184DAFF4005467BA /* YMSCBCentralManager.m in Sources */,
 				F245F486184CC9B5005467BA /* cryptolaliaViewController.m in Sources */,
 				F245F45B184CC97C005467BA /* main.m in Sources */,
 				F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */,
+				F245F4A6184DAFF4005467BA /* YMSCBService.m in Sources */,
+				F245F4A7184DAFF4005467BA /* YMSCBStoredPeripherals.m in Sources */,
+				F245F4A4184DAFF4005467BA /* YMSCBDescriptor.m in Sources */,
+				F245F4A1184DAFF4005467BA /* YMS128.c in Sources */,
+				F245F4A0184DAFF4005467BA /* NSMutableArray+fifoQueue.m in Sources */,
 				F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */,
+				F245F4A5184DAFF4005467BA /* YMSCBPeripheral.m in Sources */,
+				F245F4A8184DAFF4005467BA /* YMSCBUtils.m in Sources */,
+				F245F4A3184DAFF4005467BA /* YMSCBCharacteristic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +537,7 @@
 				F245F47F184CC97C005467BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F245F480184CC97C005467BA /* Build configuration list for PBXNativeTarget "tableviewTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +546,7 @@
 				F245F482184CC97C005467BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
