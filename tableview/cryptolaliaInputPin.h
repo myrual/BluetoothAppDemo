@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "YMSCBPeripheral.h"
 @interface cryptolaliaInputPin : UIViewController
-
+@property (nonatomic, strong) YMSCBPeripheral *bleDevice;
 @end

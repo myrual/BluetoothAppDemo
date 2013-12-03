@@ -127,14 +127,9 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    cryptolaliaInputPin *detailViewController = [[cryptolaliaInputPin alloc] initWithNibName:@"cryptolaliaInputPin" bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+
+    YMSCBPeripheral *CBPeripheral = [self.bleDeviceArray objectAtIndex:indexPath.row];
+    [CBPeripheral connect];
 }
  
 #pragma mark - CBCentralManagerDelegate Methods
@@ -183,6 +178,10 @@
     yp.delegate = self;
     
     [yp.cbPeripheral readRSSI];
+    cryptolaliaInputPin *detailViewController = [[cryptolaliaInputPin alloc] initWithNibName:@"cryptolaliaInputPin" bundle:nil];
+    detailViewController.bleDevice = yp;
+    [self.navigationController pushViewController:detailViewController animated:YES];
+
 #if 0
     for (DEAPeripheralTableViewCell *cell in [self.peripheralsTableView visibleCells]) {
         if (cell.yperipheral == yp) {
