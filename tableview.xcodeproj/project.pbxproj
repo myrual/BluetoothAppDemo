@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0F9B7AA4BC43ECBFA5E326 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C6F8D3FEC24482908A4586 /* libPods.a */; };
 		F245F44F184CC97C005467BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F44E184CC97C005467BA /* Foundation.framework */; };
 		F245F451184CC97C005467BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F450184CC97C005467BA /* CoreGraphics.framework */; };
 		F245F453184CC97C005467BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F452184CC97C005467BA /* UIKit.framework */; };
@@ -24,15 +25,6 @@
 		F245F487184CC9B5005467BA /* cryptolaliaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F245F485184CC9B5005467BA /* cryptolaliaViewController.xib */; };
 		F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F489184CCCB7005467BA /* cryptolaliaInputPin.m */; };
 		F245F48C184CCCB7005467BA /* cryptolaliaInputPin.xib in Resources */ = {isa = PBXBuildFile; fileRef = F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */; };
-		F245F4A0184DAFF4005467BA /* NSMutableArray+fifoQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F48F184DAFF4005467BA /* NSMutableArray+fifoQueue.m */; };
-		F245F4A1184DAFF4005467BA /* YMS128.c in Sources */ = {isa = PBXBuildFile; fileRef = F245F490184DAFF4005467BA /* YMS128.c */; };
-		F245F4A2184DAFF4005467BA /* YMSCBCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F493184DAFF4005467BA /* YMSCBCentralManager.m */; };
-		F245F4A3184DAFF4005467BA /* YMSCBCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F495184DAFF4005467BA /* YMSCBCharacteristic.m */; };
-		F245F4A4184DAFF4005467BA /* YMSCBDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F497184DAFF4005467BA /* YMSCBDescriptor.m */; };
-		F245F4A5184DAFF4005467BA /* YMSCBPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F499184DAFF4005467BA /* YMSCBPeripheral.m */; };
-		F245F4A6184DAFF4005467BA /* YMSCBService.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F49B184DAFF4005467BA /* YMSCBService.m */; };
-		F245F4A7184DAFF4005467BA /* YMSCBStoredPeripherals.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F49D184DAFF4005467BA /* YMSCBStoredPeripherals.m */; };
-		F245F4A8184DAFF4005467BA /* YMSCBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F49F184DAFF4005467BA /* YMSCBUtils.m */; };
 		F245F4AB184DB373005467BA /* bleCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F4AA184DB373005467BA /* bleCenterManager.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8DEC66E2F33B4DE0AC7B6FE9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D6C6F8D3FEC24482908A4586 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F245F44B184CC97C005467BA /* tableview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tableview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F245F44E184CC97C005467BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F245F450184CC97C005467BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -70,24 +64,6 @@
 		F245F488184CCCB7005467BA /* cryptolaliaInputPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cryptolaliaInputPin.h; sourceTree = "<group>"; };
 		F245F489184CCCB7005467BA /* cryptolaliaInputPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cryptolaliaInputPin.m; sourceTree = "<group>"; };
 		F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cryptolaliaInputPin.xib; sourceTree = "<group>"; };
-		F245F48E184DAFF4005467BA /* NSMutableArray+fifoQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+fifoQueue.h"; sourceTree = "<group>"; };
-		F245F48F184DAFF4005467BA /* NSMutableArray+fifoQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+fifoQueue.m"; sourceTree = "<group>"; };
-		F245F490184DAFF4005467BA /* YMS128.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = YMS128.c; sourceTree = "<group>"; };
-		F245F491184DAFF4005467BA /* YMS128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMS128.h; sourceTree = "<group>"; };
-		F245F492184DAFF4005467BA /* YMSCBCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBCentralManager.h; sourceTree = "<group>"; };
-		F245F493184DAFF4005467BA /* YMSCBCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBCentralManager.m; sourceTree = "<group>"; };
-		F245F494184DAFF4005467BA /* YMSCBCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBCharacteristic.h; sourceTree = "<group>"; };
-		F245F495184DAFF4005467BA /* YMSCBCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBCharacteristic.m; sourceTree = "<group>"; };
-		F245F496184DAFF4005467BA /* YMSCBDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBDescriptor.h; sourceTree = "<group>"; };
-		F245F497184DAFF4005467BA /* YMSCBDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBDescriptor.m; sourceTree = "<group>"; };
-		F245F498184DAFF4005467BA /* YMSCBPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBPeripheral.h; sourceTree = "<group>"; };
-		F245F499184DAFF4005467BA /* YMSCBPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBPeripheral.m; sourceTree = "<group>"; };
-		F245F49A184DAFF4005467BA /* YMSCBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBService.h; sourceTree = "<group>"; };
-		F245F49B184DAFF4005467BA /* YMSCBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBService.m; sourceTree = "<group>"; };
-		F245F49C184DAFF4005467BA /* YMSCBStoredPeripherals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBStoredPeripherals.h; sourceTree = "<group>"; };
-		F245F49D184DAFF4005467BA /* YMSCBStoredPeripherals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBStoredPeripherals.m; sourceTree = "<group>"; };
-		F245F49E184DAFF4005467BA /* YMSCBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBUtils.h; sourceTree = "<group>"; };
-		F245F49F184DAFF4005467BA /* YMSCBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBUtils.m; sourceTree = "<group>"; };
 		F245F4A9184DB373005467BA /* bleCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bleCenterManager.h; sourceTree = "<group>"; };
 		F245F4AA184DB373005467BA /* bleCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bleCenterManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +76,7 @@
 				F245F451184CC97C005467BA /* CoreGraphics.framework in Frameworks */,
 				F245F453184CC97C005467BA /* UIKit.framework in Frameworks */,
 				F245F44F184CC97C005467BA /* Foundation.framework in Frameworks */,
+				7A0F9B7AA4BC43ECBFA5E326 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +100,7 @@
 				F245F473184CC97C005467BA /* tableviewTests */,
 				F245F44D184CC97C005467BA /* Frameworks */,
 				F245F44C184CC97C005467BA /* Products */,
+				8DEC66E2F33B4DE0AC7B6FE9 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +120,7 @@
 				F245F450184CC97C005467BA /* CoreGraphics.framework */,
 				F245F452184CC97C005467BA /* UIKit.framework */,
 				F245F46D184CC97C005467BA /* XCTest.framework */,
+				D6C6F8D3FEC24482908A4586 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,24 +176,6 @@
 		F245F48D184DAFF4005467BA /* YmsCoreBluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				F245F48E184DAFF4005467BA /* NSMutableArray+fifoQueue.h */,
-				F245F48F184DAFF4005467BA /* NSMutableArray+fifoQueue.m */,
-				F245F490184DAFF4005467BA /* YMS128.c */,
-				F245F491184DAFF4005467BA /* YMS128.h */,
-				F245F492184DAFF4005467BA /* YMSCBCentralManager.h */,
-				F245F493184DAFF4005467BA /* YMSCBCentralManager.m */,
-				F245F494184DAFF4005467BA /* YMSCBCharacteristic.h */,
-				F245F495184DAFF4005467BA /* YMSCBCharacteristic.m */,
-				F245F496184DAFF4005467BA /* YMSCBDescriptor.h */,
-				F245F497184DAFF4005467BA /* YMSCBDescriptor.m */,
-				F245F498184DAFF4005467BA /* YMSCBPeripheral.h */,
-				F245F499184DAFF4005467BA /* YMSCBPeripheral.m */,
-				F245F49A184DAFF4005467BA /* YMSCBService.h */,
-				F245F49B184DAFF4005467BA /* YMSCBService.m */,
-				F245F49C184DAFF4005467BA /* YMSCBStoredPeripherals.h */,
-				F245F49D184DAFF4005467BA /* YMSCBStoredPeripherals.m */,
-				F245F49E184DAFF4005467BA /* YMSCBUtils.h */,
-				F245F49F184DAFF4005467BA /* YMSCBUtils.m */,
 				F245F4A9184DB373005467BA /* bleCenterManager.h */,
 				F245F4AA184DB373005467BA /* bleCenterManager.m */,
 			);
@@ -228,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F245F47D184CC97C005467BA /* Build configuration list for PBXNativeTarget "tableview" */;
 			buildPhases = (
+				6430FA82D5624D35840267EE /* Check Pods Manifest.lock */,
 				F245F447184CC97C005467BA /* Sources */,
 				F245F448184CC97C005467BA /* Frameworks */,
 				F245F449184CC97C005467BA /* Resources */,
+				8E666F8BD1BB4F799A10EB60 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,25 +279,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6430FA82D5624D35840267EE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8E666F8BD1BB4F799A10EB60 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F245F447184CC97C005467BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F245F4A2184DAFF4005467BA /* YMSCBCentralManager.m in Sources */,
 				F245F486184CC9B5005467BA /* cryptolaliaViewController.m in Sources */,
 				F245F45B184CC97C005467BA /* main.m in Sources */,
 				F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */,
-				F245F4A6184DAFF4005467BA /* YMSCBService.m in Sources */,
-				F245F4A7184DAFF4005467BA /* YMSCBStoredPeripherals.m in Sources */,
-				F245F4A4184DAFF4005467BA /* YMSCBDescriptor.m in Sources */,
-				F245F4A1184DAFF4005467BA /* YMS128.c in Sources */,
-				F245F4A0184DAFF4005467BA /* NSMutableArray+fifoQueue.m in Sources */,
 				F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */,
 				F245F4AB184DB373005467BA /* bleCenterManager.m in Sources */,
-				F245F4A5184DAFF4005467BA /* YMSCBPeripheral.m in Sources */,
-				F245F4A8184DAFF4005467BA /* YMSCBUtils.m in Sources */,
-				F245F4A3184DAFF4005467BA /* YMSCBCharacteristic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +445,7 @@
 		};
 		F245F47E184CC97C005467BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DEC66E2F33B4DE0AC7B6FE9 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -471,6 +459,7 @@
 		};
 		F245F47F184CC97C005467BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DEC66E2F33B4DE0AC7B6FE9 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
