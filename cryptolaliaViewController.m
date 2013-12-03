@@ -14,6 +14,7 @@
 @interface cryptolaliaViewController ()
 @property (nonatomic, strong) bleCenterManager *manager;
 @property (nonatomic, strong) NSMutableArray *bleDeviceArray;
+@property (nonatomic, strong) NSMutableArray *bleDeviceADVArray;
 @end
 
 @implementation cryptolaliaViewController
@@ -40,6 +41,7 @@
     self.manager = manager;
     NSMutableArray  *deviceArray = [[NSMutableArray alloc] init];
     self.bleDeviceArray = deviceArray;
+    self.bleDeviceADVArray = [[NSMutableArray alloc] init];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -77,7 +79,9 @@
     
     // Configure the cell...
     YMSCBPeripheral *bleDevice = [self.bleDeviceArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = bleDevice.cbPeripheral.name;
+    NSDictionary *advDict = [self.bleDeviceADVArray objectAtIndex:indexPath.row];
+    NSString *text = bleDevice.cbPeripheral.name;
+    cell.textLabel.text = [text stringByAppendingString:[advDict objectForKey:@""]];
     
     return cell;
 }
@@ -225,6 +229,7 @@
         //found new device which is not listed in table view
         NSLog(@"Found new device");
         [self.bleDeviceArray addObject:yp];
+        [self.bleDeviceADVArray addObject:advertisementData];
         [self.tableView reloadData];
     }
 #if 0
