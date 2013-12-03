@@ -129,9 +129,16 @@
 {
 
     YMSCBPeripheral *CBPeripheral = [self.bleDeviceArray objectAtIndex:indexPath.row];
-    [CBPeripheral connect];
+    if (CBPeripheral.isConnected) {
+        YMSCBPeripheral *yp = [self.bleDeviceArray objectAtIndex:indexPath.row];
+        cryptolaliaInputPin *detailViewController = [[cryptolaliaInputPin alloc] initWithNibName:@"cryptolaliaInputPin" bundle:nil];
+        detailViewController.bleDevice = yp;
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }else{
+        [CBPeripheral connect];
+    }
 }
- 
+
 #pragma mark - CBCentralManagerDelegate Methods
 
 
