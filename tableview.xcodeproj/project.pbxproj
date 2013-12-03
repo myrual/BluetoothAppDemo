@@ -33,6 +33,7 @@
 		F245F4A6184DAFF4005467BA /* YMSCBService.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F49B184DAFF4005467BA /* YMSCBService.m */; };
 		F245F4A7184DAFF4005467BA /* YMSCBStoredPeripherals.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F49D184DAFF4005467BA /* YMSCBStoredPeripherals.m */; };
 		F245F4A8184DAFF4005467BA /* YMSCBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F49F184DAFF4005467BA /* YMSCBUtils.m */; };
+		F245F4AB184DB373005467BA /* bleCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F4AA184DB373005467BA /* bleCenterManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		F245F49D184DAFF4005467BA /* YMSCBStoredPeripherals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBStoredPeripherals.m; sourceTree = "<group>"; };
 		F245F49E184DAFF4005467BA /* YMSCBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBUtils.h; sourceTree = "<group>"; };
 		F245F49F184DAFF4005467BA /* YMSCBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBUtils.m; sourceTree = "<group>"; };
+		F245F4A9184DB373005467BA /* bleCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bleCenterManager.h; sourceTree = "<group>"; };
+		F245F4AA184DB373005467BA /* bleCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bleCenterManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +215,8 @@
 				F245F49D184DAFF4005467BA /* YMSCBStoredPeripherals.m */,
 				F245F49E184DAFF4005467BA /* YMSCBUtils.h */,
 				F245F49F184DAFF4005467BA /* YMSCBUtils.m */,
+				F245F4A9184DB373005467BA /* bleCenterManager.h */,
+				F245F4AA184DB373005467BA /* bleCenterManager.m */,
 			);
 			path = YmsCoreBluetooth;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				F245F4A1184DAFF4005467BA /* YMS128.c in Sources */,
 				F245F4A0184DAFF4005467BA /* NSMutableArray+fifoQueue.m in Sources */,
 				F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */,
+				F245F4AB184DB373005467BA /* bleCenterManager.m in Sources */,
 				F245F4A5184DAFF4005467BA /* YMSCBPeripheral.m in Sources */,
 				F245F4A8184DAFF4005467BA /* YMSCBUtils.m in Sources */,
 				F245F4A3184DAFF4005467BA /* YMSCBCharacteristic.m in Sources */,

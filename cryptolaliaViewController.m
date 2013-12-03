@@ -8,8 +8,12 @@
 
 #import "cryptolaliaViewController.h"
 #import "cryptolaliaInputPin.h"
+#import "bleCenterManager.h"
+#import "YMSCBService.h"
+#import "YMSCBPeripheral.h"
 @interface cryptolaliaViewController ()
-
+@property (nonatomic, strong) bleCenterManager *manager;
+@property (nonatomic, strong) NSMutableArray *bleDeviceArray;
 @end
 
 @implementation cryptolaliaViewController
@@ -32,6 +36,16 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    bleCenterManager *manager = [bleCenterManager initSharedServiceWithDelegate:self];
+    self.manager = manager;
+    NSMutableArray  *deviceArray = [[NSMutableArray alloc] init];
+    self.bleDeviceArray = deviceArray;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.manager startScan];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,16 +58,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+    return [self.bleDeviceArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,6 +76,8 @@
     }
     
     // Configure the cell...
+    YMSCBPeripheral *bleDevice = [self.bleDeviceArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = bleDevice.cbPeripheral.name;
     
     return cell;
 }
@@ -124,6 +137,141 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
  
+#pragma mark - CBCentralManagerDelegate Methods
+
+
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    
+    switch (central.state) {
+        case CBCentralManagerStatePoweredOn:
+            break;
+        case CBCentralManagerStatePoweredOff:
+            break;
+            
+        case CBCentralManagerStateUnsupported: {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Dang."
+                                                            message:@"Unfortunately this device can not talk to Bluetooth Smart (Low Energy) Devices"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil];
+            
+            [alert show];
+            break;
+        }
+        case CBCentralManagerStateResetting: {
+//            [self.peripheralsTableView reloadData];
+            break;
+        }
+        case CBCentralManagerStateUnauthorized:
+            break;
+            
+        case CBCentralManagerStateUnknown:
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    
+}
+
+
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
+    bleCenterManager *centralManager = [bleCenterManager sharedService];
+    YMSCBPeripheral *yp = [centralManager findPeripheral:peripheral];
+    yp.delegate = self;
+    
+    [yp.cbPeripheral readRSSI];
+#if 0
+    for (DEAPeripheralTableViewCell *cell in [self.peripheralsTableView visibleCells]) {
+        if (cell.yperipheral == yp) {
+            [cell updateDisplay];
+            break;
+        }
+    }
+#endif
+}
+
+
+
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
+#if 0
+    for (DEAPeripheralTableViewCell *cell in [self.peripheralsTableView visibleCells]) {
+        [cell updateDisplay];
+    }
+#endif
+}
+
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
+    NSInteger i;
+    
+    bleCenterManager *centralManager = [bleCenterManager sharedService];
+
+    
+    YMSCBPeripheral *yp = [centralManager findPeripheral:peripheral];
+    for (i = 0; i < [self.bleDeviceArray count]; i++) {
+        if ([self.bleDeviceArray objectAtIndex:i] == yp) {
+            return;
+        }
+    }
+    if (i == [self.bleDeviceArray count]) {
+        //found new device which is not listed in table view
+        NSLog(@"Found new device");
+        [self.bleDeviceArray addObject:yp];
+        [self.tableView reloadData];
+    }
+#if 0
+    if (yp.isRenderedInViewCell == NO) {
+        [self.peripheralsTableView reloadData];
+        yp.isRenderedInViewCell = YES;
+    }
+    
+    if (centralManager.isScanning) {
+        for (DEAPeripheralTableViewCell *cell in [self.peripheralsTableView visibleCells]) {
+            if (cell.yperipheral.cbPeripheral == peripheral) {
+                if (peripheral.state == CBPeripheralStateDisconnected) {
+                    cell.rssiLabel.text = [NSString stringWithFormat:@"%d", [RSSI integerValue]];
+                    cell.peripheralStatusLabel.text = @"ADVERTISING";
+                    [cell.peripheralStatusLabel setTextColor:[[DEATheme sharedTheme] advertisingColor]];
+                } else {
+                    continue;
+                }
+            }
+        }
+    }
+#endif
+}
+
+
+- (void)centralManager:(CBCentralManager *)central didRetrievePeripherals:(NSArray *)peripherals {
+    bleCenterManager *centralManager = [bleCenterManager sharedService];
+    
+    for (CBPeripheral *peripheral in peripherals) {
+        YMSCBPeripheral *yp = [centralManager findPeripheral:peripheral];
+        if (yp) {
+            yp.delegate = self;
+        }
+    }
+#if 0
+    [self.peripheralsTableView reloadData];
+#endif
+}
+
+
+- (void)centralManager:(CBCentralManager *)central didRetrieveConnectedPeripherals:(NSArray *)peripherals {
+    bleCenterManager *centralManager = [bleCenterManager sharedService];
+    
+    for (CBPeripheral *peripheral in peripherals) {
+        YMSCBPeripheral *yp = [centralManager findPeripheral:peripheral];
+        if (yp) {
+            yp.delegate = self;
+        }
+    }
+#if 0
+    [self.peripheralsTableView reloadData];
+#endif
+}
 
 
 @end
