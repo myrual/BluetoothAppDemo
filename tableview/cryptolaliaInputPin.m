@@ -10,6 +10,11 @@
 
 @interface cryptolaliaInputPin () <UITextFieldDelegate>
 @property UITextField *pinField;
+
+-(void) writePin2ServiceWith:(NSString *)pinText;
+-(NSString *) readPinFromService;
+-(NSString *) readCryptolalia;
+
 @end
 
 @implementation cryptolaliaInputPin
