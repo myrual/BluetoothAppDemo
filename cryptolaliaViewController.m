@@ -81,7 +81,7 @@
     YMSCBPeripheral *bleDevice = [self.bleDeviceArray objectAtIndex:indexPath.row];
     NSDictionary *advDict = [self.bleDeviceADVArray objectAtIndex:indexPath.row];
     NSString *text = bleDevice.cbPeripheral.name;
-    cell.textLabel.text = [text stringByAppendingString:[advDict objectForKey:@""]];
+    cell.textLabel.text = [text stringByAppendingString:[advDict objectForKey:@"kCBAdvDataLocalName"]];
     
     return cell;
 }
