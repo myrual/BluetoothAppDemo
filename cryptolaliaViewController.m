@@ -74,14 +74,18 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
     YMSCBPeripheral *bleDevice = [self.bleDeviceArray objectAtIndex:indexPath.row];
     NSDictionary *advDict = [self.bleDeviceADVArray objectAtIndex:indexPath.row];
-    NSString *text = bleDevice.cbPeripheral.name;
+//    NSString *text = bleDevice.cbPeripheral.name;
+    NSString *text = @"";
     cell.textLabel.text = [text stringByAppendingString:[advDict objectForKey:@"kCBAdvDataLocalName"]];
+    cell.detailTextLabel.text =[bleDevice.cbPeripheral.identifier UUIDString];
+//    NSLog(@"device adv data is %@", advDict);
+//    NSLog(@"device is %@", [bleDevice.cbPeripheral.identifier UUIDString]);
     
     return cell;
 }
