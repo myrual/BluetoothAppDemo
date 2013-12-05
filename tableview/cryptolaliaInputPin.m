@@ -50,4 +50,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSLog(@"self.bleDevice is %@", self.bleDevice);
+    NSLog(@"ble device service %@", self.bleDevice.cbPeripheral);
+    for (CBUUID *uuid in self.serviceUUIDs) {
+        NSLog(@"uuid of service is %@", uuid);
+    }
+}
 @end

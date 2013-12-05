@@ -10,4 +10,5 @@
 #import "YMSCBPeripheral.h"
 @interface cryptolaliaInputPin : UIViewController
 @property (nonatomic, strong) YMSCBPeripheral *bleDevice;
+@property (nonatomic, strong) NSArray *serviceUUIDs;
 @end

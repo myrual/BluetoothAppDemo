@@ -192,9 +192,18 @@
     YMSCBPeripheral *yp = [centralManager findPeripheral:peripheral];
     yp.delegate = self;
     
+
     [yp.cbPeripheral readRSSI];
     cryptolaliaInputPin *detailViewController = [[cryptolaliaInputPin alloc] initWithNibName:@"cryptolaliaInputPin" bundle:nil];
     detailViewController.bleDevice = yp;
+    for (NSInteger i = 0; i < [self.bleDeviceArray count]; i++) {
+        if ([self.bleDeviceArray objectAtIndex:i] == yp) {
+            NSDictionary *advertisementData = nil;
+            advertisementData = [self.bleDeviceADVArray objectAtIndex:i];
+            detailViewController.serviceUUIDs = [advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"];
+            break;
+        }
+    }
     [self.navigationController pushViewController:detailViewController animated:YES];
 
 #if 0
