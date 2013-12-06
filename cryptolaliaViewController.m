@@ -143,7 +143,36 @@
         detailViewController.bleDevice = yp;
         [self.navigationController pushViewController:detailViewController animated:YES];
     }else{
-        [CBPeripheral connect];
+        [CBPeripheral connectWithOptions:nil withBlock:^(YMSCBPeripheral *yp, NSError *error){
+            NSLog(@"connected with %@ success", yp);
+            YMSCBService *firmware = [[YMSCBService alloc] initWithName:@"deviceInfo_Firmware" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_DEVINFO_SERV_UUID];
+            YMSCBService *testConfig = [[YMSCBService alloc] initWithName:@"testdata" parent:yp baseHi:kSensorTag_BASE_ADDRESS_HI baseLo:kSensorTag_BASE_ADDRESS_LO serviceOffset:kSensorTag_TEST_CONFIG];
+            NSDictionary *serviceDict = @{@"deviceInfo_Firmware_Service": firmware, @"testConfigService":testConfig};
+            yp.serviceDict = serviceDict;
+            
+            [yp discoverServices:[yp services] withBlock:^(NSArray *yservices, NSError *error) {
+                if (error) {
+                    return;
+                }
+                NSLog(@"discover service for %@ success with result %@", [yp services], yservices);
+                for (YMSCBService *service in yservices) {
+                    NSLog(@"found service %@", service);
+                }
+                cryptolaliaInputPin *detailViewController = [[cryptolaliaInputPin alloc] initWithNibName:@"cryptolaliaInputPin" bundle:nil];
+                detailViewController.bleDevice = yp;
+                for (NSInteger i = 0; i < [self.bleDeviceArray count]; i++) {
+                    if ([self.bleDeviceArray objectAtIndex:i] == yp) {
+                        NSDictionary *advertisementData = nil;
+                        advertisementData = [self.bleDeviceADVArray objectAtIndex:i];
+                        detailViewController.serviceUUIDs = [advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"];
+                        break;
+                    }
+                }
+                [self.navigationController pushViewController:detailViewController animated:YES];
+
+            }];
+
+        }];
     }
 }
 
@@ -187,6 +216,7 @@
 }
 
 
+#if 0
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     bleCenterManager *centralManager = [bleCenterManager sharedService];
     YMSCBPeripheral *yp = [centralManager findPeripheral:peripheral];
@@ -215,7 +245,7 @@
     }
 #endif
 }
-
+#endif
 
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
