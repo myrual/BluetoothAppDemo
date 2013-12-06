@@ -145,7 +145,7 @@
     }else{
         [CBPeripheral connectWithOptions:nil withBlock:^(YMSCBPeripheral *yp, NSError *error){
             NSLog(@"connected with %@ success", yp);
-            YMSCBService *firmware = [[YMSCBService alloc] initWithName:@"deviceInfo_Firmware" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_DEVINFO_SERV_UUID];
+            YMSCBService *firmware = [[YMSCBService alloc] initWithName:@"deviceInfo" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_DEVINFO_SERV_UUID];
             YMSCBService *testConfig = [[YMSCBService alloc] initWithName:@"testdata" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_TEST_SERVICE];
             NSDictionary *serviceDict = @{@"deviceInfo_Firmware_Service": firmware, @"testConfigService":testConfig};
             yp.serviceDict = serviceDict;
@@ -156,7 +156,12 @@
                 }
                 NSLog(@"discover service for %@ success with result %@", [yp services], yservices);
                 for (YMSCBService *service in yservices) {
-                    NSLog(@"found service %@", service.cbService.UUID );
+                    if ([service.name isEqualToString:@"testdata"]) {
+                        NSLog(@"found test data with uuid %@", service.cbService.UUID);
+                    }
+                    if ([service.name isEqualToString:@"deviceInfo"]) {
+                        NSLog(@"found device info with uuid %@", service.cbService.UUID);
+                    }
                 }
                 cryptolaliaInputPin *detailViewController = [[cryptolaliaInputPin alloc] initWithNibName:@"cryptolaliaInputPin" bundle:nil];
                 detailViewController.bleDevice = yp;
