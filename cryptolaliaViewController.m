@@ -146,7 +146,7 @@
         [CBPeripheral connectWithOptions:nil withBlock:^(YMSCBPeripheral *yp, NSError *error){
             NSLog(@"connected with %@ success", yp);
             YMSCBService *firmware = [[YMSCBService alloc] initWithName:@"deviceInfo_Firmware" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_DEVINFO_SERV_UUID];
-            YMSCBService *testConfig = [[YMSCBService alloc] initWithName:@"testdata" parent:yp baseHi:kSensorTag_BASE_ADDRESS_HI baseLo:kSensorTag_BASE_ADDRESS_LO serviceOffset:kSensorTag_TEST_CONFIG];
+            YMSCBService *testConfig = [[YMSCBService alloc] initWithName:@"testdata" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_TEST_SERVICE];
             NSDictionary *serviceDict = @{@"deviceInfo_Firmware_Service": firmware, @"testConfigService":testConfig};
             yp.serviceDict = serviceDict;
             

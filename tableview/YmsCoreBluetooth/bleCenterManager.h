@@ -73,7 +73,7 @@
 #define kSensorTag_GYROSCOPE_DATA          0xAA51
 #define kSensorTag_GYROSCOPE_CONFIG        0xAA52
 
-#define kSensorTag_TEST_SERVICE            0xAA60
-#define kSensorTag_TEST_DATA               0xAA61
-#define kSensorTag_TEST_CONFIG             0xAA62
+#define kSensorTag_TEST_SERVICE            0x3333
+#define kSensorTag_TEST_DATA               0x3334
+#define kSensorTag_TEST_CONFIG             0x3335
 @end
