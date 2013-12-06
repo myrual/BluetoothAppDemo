@@ -7,6 +7,8 @@
 //
 
 #import "cryptolaliaInputPin.h"
+#import "YMSCBPeripheral.h"
+#import "YMSCBCharacteristic.h"
 
 @interface cryptolaliaInputPin () <UITextFieldDelegate>
 @property UITextField *pinField;

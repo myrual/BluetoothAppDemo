@@ -11,6 +11,7 @@
 #import "bleCenterManager.h"
 #import "YMSCBService.h"
 #import "YMSCBPeripheral.h"
+#import "YMSCBCharacteristic.h"
 @interface cryptolaliaViewController ()
 @property (nonatomic, strong) bleCenterManager *manager;
 @property (nonatomic, strong) NSMutableArray *bleDeviceArray;
@@ -154,10 +155,31 @@
                 if (error) {
                     return;
                 }
+                YMSCBService *verifyPinService  = nil;
                 NSLog(@"discover service for %@ success with result %@", [yp services], yservices);
                 for (YMSCBService *service in yservices) {
                     if ([service.name isEqualToString:@"testdata"]) {
-                        NSLog(@"found test data with uuid %@", service.cbService.UUID);
+                        verifyPinService = service;
+                        NSLog(@"found test data with uuid %@", verifyPinService.cbService.UUID);
+                        NSString *VERIFY_PIN_STRING = @"writePin";
+                        int VERIFY_PIN_UUID = 0x3334;
+                        NSString *CRYPTOLOLIA_TEXT_STRING = @"text";
+                        int CRYPTOLOLIA_TEXT_UUID = 0x3335;
+                        [verifyPinService addCharacteristic:VERIFY_PIN_STRING withOffset:VERIFY_PIN_UUID];
+                        [verifyPinService addCharacteristic:CRYPTOLOLIA_TEXT_STRING withOffset:CRYPTOLOLIA_TEXT_UUID];
+                         [verifyPinService discoverCharacteristics:[verifyPinService characteristics] withBlock:^(NSDictionary *chDict, NSError *error) {
+                             if (error) {
+                                 return;
+                             }
+                             YMSCBCharacteristic *foundCharacter = [chDict objectForKey:VERIFY_PIN_STRING];
+                             if (foundCharacter) {
+                                NSLog(@"found character uuid with %@ and name %@", foundCharacter.uuid, foundCharacter.name);
+                             }
+                             YMSCBCharacteristic *foundCharacter2 = [chDict objectForKey:CRYPTOLOLIA_TEXT_STRING];
+                             if (foundCharacter2) {
+                                 NSLog(@"found character2 uuid with %@ and name %@", foundCharacter2.uuid, foundCharacter2.name);
+                             }
+                        }];
                     }
                     if ([service.name isEqualToString:@"deviceInfo"]) {
                         NSLog(@"found device info with uuid %@", service.cbService.UUID);
@@ -165,6 +187,7 @@
                 }
                 cryptolaliaInputPin *detailViewController = [[cryptolaliaInputPin alloc] initWithNibName:@"cryptolaliaInputPin" bundle:nil];
                 detailViewController.bleDevice = yp;
+                detailViewController.verifyPin = verifyPinService;
                 for (NSInteger i = 0; i < [self.bleDeviceArray count]; i++) {
                     if ([self.bleDeviceArray objectAtIndex:i] == yp) {
                         NSDictionary *advertisementData = nil;
