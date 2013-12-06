@@ -50,19 +50,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(void) viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    NSLog(@"self.bleDevice is %@", self.bleDevice);
-    NSLog(@"ble device service %@", self.bleDevice.cbPeripheral);
-    for (CBUUID *uuid in self.serviceUUIDs) {
-        NSLog(@"uuid of service is %@", uuid);
-    }
-    NSLog(@"end of view did appear");
-    double delayInSeconds = 10.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        NSLog(@"read out service is %@", self.bleDevice);
-    });
-}
 @end
