@@ -156,7 +156,7 @@
                 }
                 NSLog(@"discover service for %@ success with result %@", [yp services], yservices);
                 for (YMSCBService *service in yservices) {
-                    NSLog(@"found service %@", service);
+                    NSLog(@"found service %@", service.cbService.UUID );
                 }
                 cryptolaliaInputPin *detailViewController = [[cryptolaliaInputPin alloc] initWithNibName:@"cryptolaliaInputPin" bundle:nil];
                 detailViewController.bleDevice = yp;
