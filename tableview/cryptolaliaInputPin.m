@@ -71,6 +71,13 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (textField == self.pinField) {
+        return YES;
+    }
+    return NO;
+}
+
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     if (textField == self.pinField) {
         NSString *inputText = [textField text];
