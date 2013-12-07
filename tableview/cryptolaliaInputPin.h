@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "YMSCBPeripheral.h"
+#import "cryptolaliaCBService.h"
 @interface cryptolaliaInputPin : UIViewController
 @property (nonatomic, strong) YMSCBPeripheral *bleDevice;
-@property (nonatomic, strong) YMSCBService    *verifyPin;
+@property (nonatomic, strong) cryptolaliaCBService    *verifyPin;
 @property (nonatomic, strong) NSArray *serviceUUIDs;
 @end

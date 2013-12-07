@@ -9,6 +9,7 @@
 #import "cryptolaliaInputPin.h"
 #import "YMSCBPeripheral.h"
 #import "YMSCBCharacteristic.h"
+#import "YMSCBService.h"
 
 @interface cryptolaliaInputPin () <UITextFieldDelegate>
 @property UITextField *pinField;
@@ -50,6 +51,31 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSLog(@"my service has so many character with %@", self.verifyPin.characteristicDict);
+    YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
+    [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
+        if(error){
+            NSLog(@"found error in first read %@", error);
+            return;
+        }
+        NSLog(@"read first data with %@", data);
+        [writePinChara writeByte:0x33 withBlock:^(NSError *error){
+            [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
+                if(error){
+                    NSLog(@"found error %@", error);
+                    return;
+                }
+                NSLog(@"read verify pin data from write pin service with %@", data);
+            }];
+            
+        }];
+    }];
+    for (YMSCBCharacteristic *each in self.verifyPin.characteristicDict) {
+        NSLog(@"found chara wiht uuid %@", self.verifyPin.characteristicDict[each]);
+    }
 }
 
 @end

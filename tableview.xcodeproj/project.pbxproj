@@ -26,6 +26,7 @@
 		F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F489184CCCB7005467BA /* cryptolaliaInputPin.m */; };
 		F245F48C184CCCB7005467BA /* cryptolaliaInputPin.xib in Resources */ = {isa = PBXBuildFile; fileRef = F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */; };
 		F245F4AB184DB373005467BA /* bleCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F245F4AA184DB373005467BA /* bleCenterManager.m */; };
+		F2A78E551852CF8B00F87130 /* cryptolaliaCBService.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A78E541852CF8B00F87130 /* cryptolaliaCBService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cryptolaliaInputPin.xib; sourceTree = "<group>"; };
 		F245F4A9184DB373005467BA /* bleCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bleCenterManager.h; sourceTree = "<group>"; };
 		F245F4AA184DB373005467BA /* bleCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bleCenterManager.m; sourceTree = "<group>"; };
+		F2A78E531852CF8B00F87130 /* cryptolaliaCBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cryptolaliaCBService.h; sourceTree = "<group>"; };
+		F2A78E541852CF8B00F87130 /* cryptolaliaCBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cryptolaliaCBService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,8 @@
 			children = (
 				F245F4A9184DB373005467BA /* bleCenterManager.h */,
 				F245F4AA184DB373005467BA /* bleCenterManager.m */,
+				F2A78E531852CF8B00F87130 /* cryptolaliaCBService.h */,
+				F2A78E541852CF8B00F87130 /* cryptolaliaCBService.m */,
 			);
 			path = YmsCoreBluetooth;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */,
 				F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */,
 				F245F4AB184DB373005467BA /* bleCenterManager.m in Sources */,
+				F2A78E551852CF8B00F87130 /* cryptolaliaCBService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: LI LIN (54KU23HJJ6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tableview/tableview-Prefix.pch";
 				INFOPLIST_FILE = "tableview/tableview-Info.plist";
@@ -463,6 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: LI LIN (54KU23HJJ6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tableview/tableview-Prefix.pch";
 				INFOPLIST_FILE = "tableview/tableview-Info.plist";
