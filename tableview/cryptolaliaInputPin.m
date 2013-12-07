@@ -37,6 +37,28 @@
     [self.pinField resignFirstResponder];
     NSString *inputText = [self.pinField text];
     if (inputText) {
+        YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
+        [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
+            if(error){
+                NSLog(@"found error in first read %@", error);
+                return;
+            }
+            NSLog(@"read first data with %@", data);
+            [writePinChara writeByte:0x33 withBlock:^(NSError *error){
+                [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
+                    if(error){
+                        NSLog(@"found error %@", error);
+                        return;
+                    }
+                    NSLog(@"read verify pin data from write pin service with %@", data);
+                }];
+                
+            }];
+        }];
+        for (YMSCBCharacteristic *each in self.verifyPin.characteristicDict) {
+            NSLog(@"found chara wiht uuid %@", self.verifyPin.characteristicDict[each]);
+        }
+
         NSLog(@"found user input %@", inputText);
         self.contentField.text = [@"found user input with " stringByAppendingString:inputText];
         UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
@@ -95,27 +117,6 @@
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     NSLog(@"my service has so many character with %@", self.verifyPin.characteristicDict);
-    YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
-    [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
-        if(error){
-            NSLog(@"found error in first read %@", error);
-            return;
-        }
-        NSLog(@"read first data with %@", data);
-        [writePinChara writeByte:0x33 withBlock:^(NSError *error){
-            [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
-                if(error){
-                    NSLog(@"found error %@", error);
-                    return;
-                }
-                NSLog(@"read verify pin data from write pin service with %@", data);
-            }];
-            
-        }];
-    }];
-    for (YMSCBCharacteristic *each in self.verifyPin.characteristicDict) {
-        NSLog(@"found chara wiht uuid %@", self.verifyPin.characteristicDict[each]);
-    }
 }
 
 @end
