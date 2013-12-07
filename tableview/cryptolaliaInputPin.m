@@ -31,6 +31,16 @@
     return self;
 }
 
+-(void)buttonPressed{
+    NSLog(@"confirm button pressed");
+    [self.view endEditing:YES];
+    NSString *inputText = [self.pinField text];
+    if (inputText) {
+        NSLog(@"found user input %@", inputText);
+    }
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,11 +52,22 @@
     self.pinField = inputPinfield;
     [self.view addSubview:inputPinfield];
     
-    
-    
+    UIButton *demoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [demoButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchDown];
+    [demoButton setTitle:@"aaa" forState:UIControlStateNormal];
+    demoButton.frame = CGRectMake(100, 300, 40, 40);
+    [self.view addSubview:demoButton];
+        
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    if (textField == self.pinField) {
+        NSString *inputText = [textField text];
+        NSLog(@"found user input with %@", inputText);
+    }
+    ;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
