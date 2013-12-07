@@ -161,7 +161,7 @@
                 NSLog(@"discover service for %@ success with result %@", [yp services], yservices);
                 for (YMSCBService *service in yservices) {
                     if ([service.name isEqualToString:@"testConfigService"]) {
-                        __weak cryptolaliaCBService *thisService = (cryptolaliaCBService *)service;
+                        cryptolaliaCBService *thisService = (cryptolaliaCBService *)service;
                         detailViewController.verifyPin = thisService;
                         NSLog(@"found test data with uuid %@", thisService.cbService.UUID);
                         [thisService discoverCharacteristics:[thisService characteristics] withBlock:^(NSDictionary *chDict, NSError *error) {
