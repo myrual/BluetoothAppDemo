@@ -13,7 +13,7 @@
 
 @interface cryptolaliaInputPin () <UITextFieldDelegate>
 @property UITextField *pinField;
-
+@property UITextField *contentField;
 -(void) writePin2ServiceWith:(NSString *)pinText;
 -(NSString *) readPinFromService;
 -(NSString *) readCryptolalia;
@@ -33,10 +33,12 @@
 
 -(void)buttonPressed{
     NSLog(@"confirm button pressed");
-    [self.view endEditing:YES];
+//    [self.view endEditing:YES];
+    [self.pinField resignFirstResponder];
     NSString *inputText = [self.pinField text];
     if (inputText) {
         NSLog(@"found user input %@", inputText);
+        self.contentField.text = [@"found user input with " stringByAppendingString:inputText];
     }
 }
 
@@ -51,6 +53,14 @@
     inputPinfield.keyboardType = UIKeyboardTypeDecimalPad;
     self.pinField = inputPinfield;
     [self.view addSubview:inputPinfield];
+    
+    UITextField *contentField = [[UITextField alloc] initWithFrame:CGRectMake(10, 250, 300, 40)];
+    contentField.borderStyle = UITextBorderStyleRoundedRect;
+    contentField.placeholder = @"content will be here";
+    contentField.delegate = self;
+    contentField.allowsEditingTextAttributes = NO;
+    self.contentField = contentField;
+    [self.view addSubview:contentField];
     
     UIButton *demoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [demoButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchDown];
