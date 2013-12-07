@@ -39,6 +39,8 @@
     if (inputText) {
         NSLog(@"found user input %@", inputText);
         self.contentField.text = [@"found user input with " stringByAppendingString:inputText];
+        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+        pasteBoard.string = self.contentField.text;
     }
 }
 
