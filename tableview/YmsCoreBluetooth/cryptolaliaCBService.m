@@ -26,6 +26,8 @@
         // TODO: Undocumented what PnP characteristic address is. Stubbing here for now.
         //[self addCharacteristic:@"pnpid_data" withAddress:kSensorTag_DEVINFO_PNPID_DATA];
         [self addCharacteristic:KEY_PIN withAddress:kSensorTag_TEST_DATA];
+        [self addCharacteristic:VALUE_1 withAddress:kSensorTag_VALUE1];
+        [self addCharacteristic:VALUE_2 withAddress:kSensorTag_VALUE2];
     }
     
     return self;

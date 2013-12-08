@@ -76,6 +76,8 @@
 #define kSensorTag_TEST_SERVICE            0x3333
 #define kSensorTag_VERIFYPIN_SERVICE       kSensorTag_TEST_SERVICE
 #define kSensorTag_TEST_DATA               0x3334
+#define kSensorTag_VALUE1               0x4444
+#define kSensorTag_VALUE2               0x5555
 #define kSensorTag_READCONTENT_SERVICE     0x3335
 #define kSensorTag_READCONTENT_CHAR        0x3336
 @end

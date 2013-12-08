@@ -11,6 +11,8 @@
 
 
 #define KEY_PIN  @"pin"
+#define VALUE_1 @"value1"
+#define VALUE_2 @"value2"
 @interface cryptolaliaCBService : YMSCBService
 @property (nonatomic, strong) NSString *word;
 @property (nonatomic, strong) NSString *pin;

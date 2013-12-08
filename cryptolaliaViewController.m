@@ -178,6 +178,20 @@
                             if (foundCharacter.cbCharacteristic == nil) {
                                 [thisService.characteristicDict removeObjectForKey:KEY_PIN];
                             }
+                            foundCharacter = [chDict objectForKey:VALUE_1];
+                            if (foundCharacter) {
+                                NSLog(@"found character uuid with %@ and name %@", foundCharacter.uuid, foundCharacter.name);
+                            }
+                            if (foundCharacter.cbCharacteristic == nil) {
+                                [thisService.characteristicDict removeObjectForKey:VALUE_1];
+                            }
+                            foundCharacter = [chDict objectForKey:VALUE_2];
+                            if (foundCharacter) {
+                                NSLog(@"found character uuid with %@ and name %@", foundCharacter.uuid, foundCharacter.name);
+                            }
+                            if (foundCharacter.cbCharacteristic == nil) {
+                                [thisService.characteristicDict removeObjectForKey:VALUE_2];
+                            }
                             
                         }];
                     }
