@@ -9,7 +9,7 @@
 #import "YMSCBService.h"
 #import "YMSCBCharacteristic.h"
 
-#define KEY_WORD @"word"
+
 #define KEY_PIN  @"pin"
 @interface cryptolaliaCBService : YMSCBService
 @property (nonatomic, strong) NSString *word;

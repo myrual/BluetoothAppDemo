@@ -33,7 +33,7 @@
 
 - (void)readDeviceInfo {
     NSLog(@"I am reading out data from 3334");
-    YMSCBCharacteristic *system_idCt = self.characteristicDict[KEY_WORD];
+    YMSCBCharacteristic *system_idCt = self.characteristicDict[KEY_PIN];
     __weak cryptolaliaCBService *this = self;
     unsigned char toWrite[9] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99};
     [system_idCt writeValue:[NSData dataWithBytes:toWrite length:1] withBlock:^(NSError *error) {

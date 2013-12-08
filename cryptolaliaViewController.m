@@ -13,6 +13,7 @@
 #import "YMSCBPeripheral.h"
 #import "YMSCBCharacteristic.h"
 #import "cryptolaliaCBService.h"
+#import "cryptolaliaReadContent.h"
 @interface cryptolaliaViewController ()
 @property (nonatomic, strong) bleCenterManager *manager;
 @property (nonatomic, strong) NSMutableArray *bleDeviceArray;
@@ -149,7 +150,7 @@
             NSLog(@"connected with %@ success", yp);
             YMSCBService *firmware = [[YMSCBService alloc] initWithName:@"deviceInfo" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_DEVINFO_SERV_UUID];
             cryptolaliaCBService *verifyPinService = [[cryptolaliaCBService alloc] initWithName:@"testConfigService" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_VERIFYPIN_SERVICE];
-            YMSCBService *readContent = [[YMSCBService alloc] initWithName:@"readContent" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_READCONTENT_SERVICE];
+            cryptolaliaReadContent *readContent = [[cryptolaliaReadContent alloc] initWithName:@"readContent" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_READCONTENT_SERVICE];
             NSDictionary *serviceDict = @{@"deviceInfo_Firmware_Service": firmware, @"testConfigService":verifyPinService, @"readContent" : readContent
                                           };
             yp.serviceDict = serviceDict;
@@ -178,6 +179,21 @@
                                 [thisService.characteristicDict removeObjectForKey:KEY_PIN];
                             }
                             
+                        }];
+                    }
+                    if ([service.name isEqualToString:@"deviceInfo"]) {
+                        NSLog(@"found device info with uuid %@", service.cbService.UUID);
+                    }
+                    if ([service.name isEqualToString:@"readContent"]) {
+                        NSLog(@"found read content with uuid %@", service.cbService.UUID);
+                        cryptolaliaReadContent *thisService = (cryptolaliaReadContent *)service;
+                        detailViewController.readContent = thisService;
+                        NSLog(@"found test data with uuid %@", thisService.cbService.UUID);
+                        [thisService discoverCharacteristics:[thisService characteristics] withBlock:^(NSDictionary *chDict, NSError *error) {
+                            if (error) {
+                                return;
+                            }
+                            
                             YMSCBCharacteristic *foundCharacter2 = [chDict objectForKey:KEY_WORD];
                             if (foundCharacter2) {
                                 NSLog(@"found character2 uuid with %@ and name %@", foundCharacter2.uuid, foundCharacter2.name);
@@ -186,12 +202,6 @@
                                 [thisService.characteristicDict removeObjectForKey:KEY_WORD];
                             }
                         }];
-                    }
-                    if ([service.name isEqualToString:@"deviceInfo"]) {
-                        NSLog(@"found device info with uuid %@", service.cbService.UUID);
-                    }
-                    if ([service.name isEqualToString:@"readContent"]) {
-                        NSLog(@"found read content with uuid %@", service.cbService.UUID);
                     }
                 }
 
