@@ -148,8 +148,10 @@
         [CBPeripheral connectWithOptions:nil withBlock:^(YMSCBPeripheral *yp, NSError *error){
             NSLog(@"connected with %@ success", yp);
             YMSCBService *firmware = [[YMSCBService alloc] initWithName:@"deviceInfo" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_DEVINFO_SERV_UUID];
-            cryptolaliaCBService *testconfig = [[cryptolaliaCBService alloc] initWithName:@"testConfigService" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_TEST_SERVICE];
-            NSDictionary *serviceDict = @{@"deviceInfo_Firmware_Service": firmware, @"testConfigService":testconfig};
+            cryptolaliaCBService *verifyPinService = [[cryptolaliaCBService alloc] initWithName:@"testConfigService" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_VERIFYPIN_SERVICE];
+            YMSCBService *readContent = [[YMSCBService alloc] initWithName:@"readContent" parent:yp baseHi:0 baseLo:0 serviceOffset:kSensorTag_READCONTENT_SERVICE];
+            NSDictionary *serviceDict = @{@"deviceInfo_Firmware_Service": firmware, @"testConfigService":verifyPinService, @"readContent" : readContent
+                                          };
             yp.serviceDict = serviceDict;
             
             [yp discoverServices:[yp services] withBlock:^(NSArray *yservices, NSError *error) {
@@ -187,6 +189,9 @@
                     }
                     if ([service.name isEqualToString:@"deviceInfo"]) {
                         NSLog(@"found device info with uuid %@", service.cbService.UUID);
+                    }
+                    if ([service.name isEqualToString:@"readContent"]) {
+                        NSLog(@"found read content with uuid %@", service.cbService.UUID);
                     }
                 }
 
