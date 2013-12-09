@@ -37,6 +37,7 @@
     [self.pinField resignFirstResponder];
     NSString *inputText = [self.pinField text];
     if (inputText) {
+#if 1
         YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
         [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
             if(error){
@@ -55,6 +56,17 @@
                 
             }];
         }];
+#endif
+        YMSCBCharacteristic *writeValueChara = self.verifyPin.characteristicDict[VALUE_1];
+
+        unsigned char demo[5] = {1,2,3,4,5};
+        [writeValueChara writeValue:[NSData dataWithBytes:demo length:4] withBlock:^(NSError *error){
+            [writeValueChara readValueWithBlock:^(NSData *data, NSError *error){
+                NSLog(@"read out data %@", data);
+                ;
+            }];
+        }];
+
         for (YMSCBCharacteristic *each in self.verifyPin.characteristicDict) {
             NSLog(@"found chara wiht uuid %@", self.verifyPin.characteristicDict[each]);
         }
