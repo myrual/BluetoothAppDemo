@@ -62,7 +62,11 @@
         unsigned char demo[5] = {1,2,3,4,5};
         [writeValueChara writeValue:[NSData dataWithBytes:demo length:4] withBlock:^(NSError *error){
             [writeValueChara readValueWithBlock:^(NSData *data, NSError *error){
-                NSLog(@"read out data %@", data);
+                if (error) {
+                    NSLog(@"found error after write data");
+                    return;
+                }
+                NSLog(@"read out value data %@", data);
                 ;
             }];
         }];
