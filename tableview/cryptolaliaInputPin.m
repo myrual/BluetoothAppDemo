@@ -37,26 +37,8 @@
     [self.pinField resignFirstResponder];
     NSString *inputText = [self.pinField text];
     if (inputText) {
+
 #if 1
-        YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
-        [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
-            if(error){
-                NSLog(@"found error in first read %@", error);
-                return;
-            }
-            NSLog(@"read first data with %@", data);
-            [writePinChara writeByte:0x33 withBlock:^(NSError *error){
-                [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
-                    if(error){
-                        NSLog(@"found error %@", error);
-                        return;
-                    }
-                    NSLog(@"read verify pin data from write pin service with %@", data);
-                }];
-                
-            }];
-        }];
-#endif
         YMSCBCharacteristic *writeValueChara = self.verifyPin.characteristicDict[VALUE_1];
 
         unsigned char demo[5] = {1,2,3,4,5};
@@ -69,7 +51,33 @@
                 NSLog(@"read out value data %@", data);
                 ;
             }];
+#if 1
+            YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
+            [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
+                if(error){
+                    NSLog(@"found error in first read %@", error);
+                    return;
+                }
+                NSLog(@"read first data with %@", data);
+                unsigned char pinCodeChar[6] = {0x05,0x04,0x03, 0x02, 0x01};
+                NSData *pinCode = [NSData dataWithBytes:pinCodeChar length:5];
+                [writePinChara writeValue:pinCode withBlock:^(NSError *error){
+                    [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
+                        if(error){
+                            NSLog(@"found error %@", error);
+                            return;
+                        }
+                        NSLog(@"read verify pin data from write pin service with %@", data);
+                        NSString *resultString = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
+                        NSLog(@"found result with %@", resultString);
+                        self.contentField.text = resultString;
+                    }];
+                    
+                }];
+            }];
+#endif
         }];
+#endif
 
         for (YMSCBCharacteristic *each in self.verifyPin.characteristicDict) {
             NSLog(@"found chara wiht uuid %@", self.verifyPin.characteristicDict[each]);
@@ -79,7 +87,9 @@
         self.contentField.text = [@"found user input with " stringByAppendingString:inputText];
         UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
         pasteBoard.string = self.contentField.text;
+        
     }
+
 }
 
 
