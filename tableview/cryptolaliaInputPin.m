@@ -42,15 +42,6 @@
         YMSCBCharacteristic *writeValueChara = self.verifyPin.characteristicDict[VALUE_1];
 
         unsigned char demo[5] = {1,2,3,4,5};
-        [writeValueChara writeValue:[NSData dataWithBytes:demo length:4] withBlock:^(NSError *error){
-            [writeValueChara readValueWithBlock:^(NSData *data, NSError *error){
-                if (error) {
-                    NSLog(@"found error after write data");
-                    return;
-                }
-                NSLog(@"read out value data %@", data);
-                ;
-            }];
 #if 1
             YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
             [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
@@ -59,8 +50,8 @@
                     return;
                 }
                 NSLog(@"read first data with %@", data);
-                unsigned char pinCodeChar[6] = {0x05,0x04,0x03, 0x02, 0x01};
-                NSData *pinCode = [NSData dataWithBytes:pinCodeChar length:5];
+                unsigned char pinCodeChar[9] = {0x00,0x00,0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                NSData *pinCode = [NSData dataWithBytes:pinCodeChar length:8];
                 [writePinChara writeValue:pinCode withBlock:^(NSError *error){
                     [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
                         if(error){
@@ -71,12 +62,20 @@
                         NSString *resultString = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
                         NSLog(@"found result with %@", resultString);
                         self.contentField.text = resultString;
+                        [writeValueChara readValueWithBlock:^(NSData *data, NSError *error){
+                            if (error) {
+                                NSLog(@"found error after write data");
+                                return;
+                            }
+                            NSLog(@"read out value data %@", data);
+                            ;
+                        }];
+
                     }];
                     
                 }];
             }];
 #endif
-        }];
 #endif
 
         for (YMSCBCharacteristic *each in self.verifyPin.characteristicDict) {
