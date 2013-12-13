@@ -32,52 +32,52 @@
 }
 
 -(void)buttonPressed{
+    NSMutableData *pinData2Chip = [[NSMutableData alloc] initWithCapacity:8];
     NSLog(@"confirm button pressed");
 //    [self.view endEditing:YES];
     [self.pinField resignFirstResponder];
     NSString *inputText = [self.pinField text];
     if (inputText) {
+        NSData *pinData = [inputText dataUsingEncoding:NSStringEncodingConversionAllowLossy];
+        [pinData2Chip appendData:pinData];
+        NSLog(@"pin data is %@", pinData);
+        if ([pinData length] < 8) {
+            NSInteger toPading = 8 - [pinData length];
+            unsigned char toPadingContent[toPading];
+            for (NSInteger i = 0; i < toPading; i++) {
+                toPadingContent[i] = 0x30;
+            }
+            NSData *paddingData = [NSData dataWithBytes:toPadingContent length:toPading];
+            [pinData2Chip appendData:paddingData];
+        }
 
-#if 1
         YMSCBCharacteristic *writeValueChara = self.verifyPin.characteristicDict[VALUE_1];
-
-        unsigned char demo[5] = {1,2,3,4,5};
-#if 1
-            YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
+        YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
+        
+        [writePinChara writeValue:pinData2Chip withBlock:^(NSError *error){
             [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
                 if(error){
-                    NSLog(@"found error in first read %@", error);
+                    NSLog(@"found error  after write pin and read pin%@", error);
                     return;
                 }
-                NSLog(@"read first data with %@", data);
-                unsigned char pinCodeChar[9] = {0x00,0x00,0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-                NSData *pinCode = [NSData dataWithBytes:pinCodeChar length:8];
-                [writePinChara writeValue:pinCode withBlock:^(NSError *error){
-                    [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
-                        if(error){
-                            NSLog(@"found error %@", error);
-                            return;
-                        }
-                        NSLog(@"read verify pin data from write pin service with %@", data);
-                        NSString *resultString = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
-                        NSLog(@"found result with %@", resultString);
-                        self.contentField.text = resultString;
-                        [writeValueChara readValueWithBlock:^(NSData *data, NSError *error){
-                            if (error) {
-                                NSLog(@"found error after write data");
-                                return;
-                            }
-                            NSLog(@"read out value data %@", data);
-                            ;
-                        }];
-
-                    }];
-                    
+                NSLog(@"read verify pin data from write pin service with %@", data);
+                NSString *resultString = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
+                NSLog(@"found result with %@", resultString);
+                self.contentField.text = resultString;
+                [writeValueChara readValueWithBlock:^(NSData *data, NSError *error){
+                    if (error) {
+                        NSLog(@"found error after data");
+                        return;
+                    }
+                    NSLog(@"read out value data %@", data);
+                    ;
                 }];
+                
             }];
-#endif
-#endif
-
+            
+        }];
+        
+        
         for (YMSCBCharacteristic *each in self.verifyPin.characteristicDict) {
             NSLog(@"found chara wiht uuid %@", self.verifyPin.characteristicDict[each]);
         }
@@ -113,8 +113,8 @@
     
     UIButton *demoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [demoButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchDown];
-    [demoButton setTitle:@"aaa" forState:UIControlStateNormal];
-    demoButton.frame = CGRectMake(100, 300, 40, 40);
+    [demoButton setTitle:@"Confirm" forState:UIControlStateNormal];
+    demoButton.frame = CGRectMake(100, 300, 100, 80);
     [self.view addSubview:demoButton];
         
     // Do any additional setup after loading the view from its nib.
