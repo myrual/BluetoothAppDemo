@@ -192,6 +192,14 @@
                             if (foundCharacter.cbCharacteristic == nil) {
                                 [thisService.characteristicDict removeObjectForKey:VALUE_2];
                             }
+                            foundCharacter = [chDict objectForKey:UPDATE_PIN];
+                            if (foundCharacter) {
+                                NSLog(@"found character uuid with %@ and name %@", foundCharacter.uuid, foundCharacter.name);
+                            }
+                            if (foundCharacter.cbCharacteristic == nil) {
+                                [thisService.characteristicDict removeObjectForKey:VALUE_2];
+                            }
+
                             
                         }];
                     }

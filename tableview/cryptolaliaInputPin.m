@@ -53,6 +53,7 @@
 
         YMSCBCharacteristic *writeValueChara = self.verifyPin.characteristicDict[VALUE_1];
         YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
+        YMSCBCharacteristic *updatePinChara = self.verifyPin.characteristicDict[UPDATE_PIN];
         
         [writePinChara writeValue:pinData2Chip withBlock:^(NSError *error){
             [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
@@ -70,7 +71,9 @@
                         return;
                     }
                     NSLog(@"read out value data %@", data);
-                    ;
+                    [writeValueChara writeValue:pinData2Chip withBlock:^(NSError *error){
+                        NSLog(@"found error with %@", error);
+                    }];
                 }];
                 
             }];
