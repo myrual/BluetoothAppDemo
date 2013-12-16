@@ -14,6 +14,7 @@
 @interface cryptolaliaInputPin () <UITextFieldDelegate>
 @property UITextField *pinField;
 @property UITextField *contentField;
+@property UIButton *confirmButton;
 -(void) writePin2ServiceWith:(NSString *)pinText;
 -(NSString *) readPinFromService;
 -(NSString *) readCryptolalia;
@@ -31,31 +32,37 @@
     return self;
 }
 
--(void)buttonPressed{
+-(NSData *)prepareDataFromInput:(NSString *) inputText{
     NSMutableData *pinData2Chip = [[NSMutableData alloc] initWithCapacity:8];
+    NSData *pinData = [inputText dataUsingEncoding:NSStringEncodingConversionAllowLossy];
+    [pinData2Chip appendData:pinData];
+    NSLog(@"pin data is %@", pinData);
+    if ([pinData length] < 8) {
+        NSInteger toPading = 8 - [pinData length];
+        unsigned char toPadingContent[toPading];
+        for (NSInteger i = 0; i < toPading; i++) {
+            toPadingContent[i] = 0x30;
+        }
+        NSData *paddingData = [NSData dataWithBytes:toPadingContent length:toPading];
+        [pinData2Chip appendData:paddingData];
+    }
+    return pinData2Chip;
+}
+
+-(void)buttonPressed{
     NSLog(@"confirm button pressed");
 //    [self.view endEditing:YES];
     [self.pinField resignFirstResponder];
     NSString *inputText = [self.pinField text];
     if (inputText) {
-        NSData *pinData = [inputText dataUsingEncoding:NSStringEncodingConversionAllowLossy];
-        [pinData2Chip appendData:pinData];
-        NSLog(@"pin data is %@", pinData);
-        if ([pinData length] < 8) {
-            NSInteger toPading = 8 - [pinData length];
-            unsigned char toPadingContent[toPading];
-            for (NSInteger i = 0; i < toPading; i++) {
-                toPadingContent[i] = 0x30;
-            }
-            NSData *paddingData = [NSData dataWithBytes:toPadingContent length:toPading];
-            [pinData2Chip appendData:paddingData];
-        }
-
+        [self.confirmButton setEnabled:NO];
         YMSCBCharacteristic *writeValueChara = self.verifyPin.characteristicDict[VALUE_1];
         YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
-        YMSCBCharacteristic *updatePinChara = self.verifyPin.characteristicDict[UPDATE_PIN];
-        
-        [writePinChara writeValue:pinData2Chip withBlock:^(NSError *error){
+        [writePinChara writeValue:[self prepareDataFromInput:[self.pinField text]] withBlock:^(NSError *error){
+            if (error) {
+                NSLog(@"verify pin error %@", error);
+                return;
+            }
             [writePinChara readValueWithBlock:^(NSData *data, NSError *error){
                 if(error){
                     NSLog(@"found error  after write pin and read pin%@", error);
@@ -71,8 +78,10 @@
                         return;
                     }
                     NSLog(@"read out value data %@", data);
-                    [writeValueChara writeValue:pinData2Chip withBlock:^(NSError *error){
-                        NSLog(@"found error with %@", error);
+                    [writeValueChara writeValue:[self prepareDataFromInput:[self.pinField text]] withBlock:^(NSError *error){
+                        if(error){
+                            NSLog(@"found error with %@", error);
+                        }
                     }];
                 }];
                 
@@ -95,6 +104,38 @@
 }
 
 
+-(void)updatePinbuttonPressed{
+    NSMutableData *pinData2Chip = [[NSMutableData alloc] initWithCapacity:8];
+    NSLog(@"confirm button pressed");
+    //    [self.view endEditing:YES];
+    [self.pinField resignFirstResponder];
+    NSString *inputText = [self.pinField text];
+    if (inputText) {
+        NSData *pinData = [inputText dataUsingEncoding:NSStringEncodingConversionAllowLossy];
+        [pinData2Chip appendData:pinData];
+        NSLog(@"pin data is %@", pinData);
+        if ([pinData length] < 8) {
+            NSInteger toPading = 8 - [pinData length];
+            unsigned char toPadingContent[toPading];
+            for (NSInteger i = 0; i < toPading; i++) {
+                toPadingContent[i] = 0x30;
+            }
+            NSData *paddingData = [NSData dataWithBytes:toPadingContent length:toPading];
+            [pinData2Chip appendData:paddingData];
+        }
+        
+        YMSCBCharacteristic *updatePinChara = self.verifyPin.characteristicDict[UPDATE_PIN];
+        NSLog(@"pin data 2 chip is %@", pinData2Chip);
+        [updatePinChara writeValue:pinData2Chip withBlock:^(NSError *error){
+            if(error){
+                NSLog(@"found error for update pin with %@", error);
+            }
+            
+        }];
+    }
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -115,17 +156,34 @@
     [self.view addSubview:contentField];
     
     UIButton *demoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [demoButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchDown];
+    [demoButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     [demoButton setTitle:@"Confirm" forState:UIControlStateNormal];
     demoButton.frame = CGRectMake(100, 300, 100, 80);
     [self.view addSubview:demoButton];
+    self.confirmButton = demoButton;
+    
+    
+    UIButton *updatePinButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [updatePinButton addTarget:self action:@selector(updatePinbuttonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [updatePinButton setTitle:@"UpdatePin" forState:UIControlStateNormal];
+    updatePinButton.frame = CGRectMake(100, 100, 100, 80);
+    [self.view addSubview:updatePinButton];
+
         
     // Do any additional setup after loading the view from its nib.
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     if (textField == self.pinField) {
-        return YES;
+
+
+            NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        if (newLength == 8) {
+        [self.confirmButton setEnabled:YES];
+        }else{
+        [self.confirmButton setEnabled:NO];
+        }
+            return (newLength == 9) ? NO : YES;
     }
     return NO;
 }
