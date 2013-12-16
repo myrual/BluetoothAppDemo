@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7A0F9B7AA4BC43ECBFA5E326 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C6F8D3FEC24482908A4586 /* libPods.a */; };
+		F2246790185ECE41004C83E5 /* DeviceInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = F224678F185ECE40004C83E5 /* DeviceInfoService.m */; };
 		F237D9DE18545036008A2C14 /* cryptolaliaReadContent.m in Sources */ = {isa = PBXBuildFile; fileRef = F237D9DD18545036008A2C14 /* cryptolaliaReadContent.m */; };
 		F245F44F184CC97C005467BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F44E184CC97C005467BA /* Foundation.framework */; };
 		F245F451184CC97C005467BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F450184CC97C005467BA /* CoreGraphics.framework */; };
@@ -43,6 +44,8 @@
 /* Begin PBXFileReference section */
 		8DEC66E2F33B4DE0AC7B6FE9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D6C6F8D3FEC24482908A4586 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F224678E185ECE40004C83E5 /* DeviceInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceInfoService.h; path = ../DeviceInfoService.h; sourceTree = "<group>"; };
+		F224678F185ECE40004C83E5 /* DeviceInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceInfoService.m; path = ../DeviceInfoService.m; sourceTree = "<group>"; };
 		F237D9DC18545036008A2C14 /* cryptolaliaReadContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cryptolaliaReadContent.h; path = ../cryptolaliaReadContent.h; sourceTree = "<group>"; };
 		F237D9DD18545036008A2C14 /* cryptolaliaReadContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cryptolaliaReadContent.m; path = ../cryptolaliaReadContent.m; sourceTree = "<group>"; };
 		F245F44B184CC97C005467BA /* tableview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tableview.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +185,8 @@
 		F245F48D184DAFF4005467BA /* YmsCoreBluetooth */ = {
 			isa = PBXGroup;
 			children = (
+				F224678E185ECE40004C83E5 /* DeviceInfoService.h */,
+				F224678F185ECE40004C83E5 /* DeviceInfoService.m */,
 				F237D9DC18545036008A2C14 /* cryptolaliaReadContent.h */,
 				F237D9DD18545036008A2C14 /* cryptolaliaReadContent.m */,
 				F245F4A9184DB373005467BA /* bleCenterManager.h */,
@@ -330,6 +335,7 @@
 				F245F486184CC9B5005467BA /* cryptolaliaViewController.m in Sources */,
 				F245F45B184CC97C005467BA /* main.m in Sources */,
 				F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */,
+				F2246790185ECE41004C83E5 /* DeviceInfoService.m in Sources */,
 				F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */,
 				F237D9DE18545036008A2C14 /* cryptolaliaReadContent.m in Sources */,
 				F245F4AB184DB373005467BA /* bleCenterManager.m in Sources */,

@@ -10,9 +10,11 @@
 #import "YMSCBPeripheral.h"
 #import "cryptolaliaCBService.h"
 #import "cryptolaliaReadContent.h"
+#import "DeviceInfoService.h"
 @interface cryptolaliaInputPin : UIViewController <UITextFieldDelegate>
 @property (nonatomic, strong) YMSCBPeripheral *bleDevice;
 @property (nonatomic, strong) cryptolaliaCBService    *verifyPin;
+@property (nonatomic, strong) DeviceInfoService       *deviceInfo;
 @property (nonatomic, strong) cryptolaliaReadContent  *readContent;
 @property (nonatomic, strong) NSArray *serviceUUIDs;
 @end
