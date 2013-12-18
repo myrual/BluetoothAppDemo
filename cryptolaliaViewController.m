@@ -93,6 +93,10 @@
     }else{
         cell.textLabel.text = @"NA localName";
     }
+    NSArray *serviceUUID = [advDict objectForKey:@"kCBAdvDataServiceUUIDs"];
+    for (CBUUID *uuid in serviceUUID) {
+        NSLog(@"found uuid in advertisze with %@", uuid);
+    }
 
     cell.detailTextLabel.text =[bleDevice.cbPeripheral.identifier UUIDString];
 //    NSLog(@"device adv data is %@", advDict);
