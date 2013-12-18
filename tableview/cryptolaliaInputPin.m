@@ -55,7 +55,6 @@
     [self.pinField resignFirstResponder];
     NSString *inputText = [self.pinField text];
     if (inputText) {
-        [self.confirmButton setEnabled:NO];
         YMSCBCharacteristic *writeValueChara = self.verifyPin.characteristicDict[VALUE_1];
         YMSCBCharacteristic *writePinChara = self.verifyPin.characteristicDict[KEY_PIN];
         [writePinChara writeValue:[self prepareDataFromInput:[self.pinField text]] withBlock:^(NSError *error){
@@ -78,27 +77,18 @@
                         return;
                     }
                     NSLog(@"read out value data %@", data);
+
                     self.contentField.text = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
-//                    [writeValueChara writeValue:[self prepareDataFromInput:[self.pinField text]] withBlock:^(NSError *error){
-//                        if(error){
-//                            NSLog(@"found error with %@", error);
-//                        }
-//                    }];
+                    UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+                    pasteBoard.string = self.contentField.text;
                 }];
                 
             }];
             
         }];
         
-        
-        for (YMSCBCharacteristic *each in self.verifyPin.characteristicDict) {
-            NSLog(@"found chara wiht uuid %@", self.verifyPin.characteristicDict[each]);
-        }
-
         NSLog(@"found user input %@", inputText);
         self.contentField.text = [@"found user input with " stringByAppendingString:inputText];
-        UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-        pasteBoard.string = self.contentField.text;
         
     }
 
@@ -141,7 +131,7 @@
     NSMutableData *pinData2Chip = [[NSMutableData alloc] init];
     NSLog(@"confirm button pressed");
     //    [self.view endEditing:YES];
-    [self.pinField resignFirstResponder];
+    [self.contentField resignFirstResponder];
     NSString *inputText = [self.contentField text];
     if (inputText) {
         NSData *pinData = [inputText dataUsingEncoding:NSStringEncodingConversionAllowLossy];
@@ -162,7 +152,9 @@
         [writeValueChara writeValue:pinData2Chip withBlock:^(NSError *error){
             if(error){
                 NSLog(@"found error for update pin with %@", error);
+                return;
             }
+            self.contentField.text = @"update content successful";
         }];
     }
     
@@ -183,7 +175,6 @@
     contentField.borderStyle = UITextBorderStyleRoundedRect;
     contentField.placeholder = @"content will be here";
     contentField.delegate = self;
-    contentField.allowsEditingTextAttributes = NO;
     self.contentField = contentField;
     [self.view addSubview:contentField];
     
@@ -205,34 +196,13 @@
     UIButton *updateContentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [updateContentButton addTarget:self action:@selector(updateContentButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [updateContentButton setTitle:@"UpdateContent" forState:UIControlStateNormal];
-    updateContentButton.frame = CGRectMake(100, 50, 100, 50);
+    updateContentButton.frame = CGRectMake(50, 50, 200, 50);
     [self.view addSubview:updateContentButton];
 
     // Do any additional setup after loading the view from its nib.
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    if (textField == self.pinField) {
 
-
-            NSUInteger newLength = [textField.text length] + [string length] - range.length;
-        if (newLength == 8) {
-        [self.confirmButton setEnabled:YES];
-        }else{
-        [self.confirmButton setEnabled:NO];
-        }
-            return (newLength == 9) ? NO : YES;
-    }
-    return YES;
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField{
-    if (textField == self.pinField) {
-        NSString *inputText = [textField text];
-        NSLog(@"found user input with %@", inputText);
-    }
-    ;
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
