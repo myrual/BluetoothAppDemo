@@ -78,11 +78,12 @@
                         return;
                     }
                     NSLog(@"read out value data %@", data);
-                    [writeValueChara writeValue:[self prepareDataFromInput:[self.pinField text]] withBlock:^(NSError *error){
-                        if(error){
-                            NSLog(@"found error with %@", error);
-                        }
-                    }];
+                    self.contentField.text = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
+//                    [writeValueChara writeValue:[self prepareDataFromInput:[self.pinField text]] withBlock:^(NSError *error){
+//                        if(error){
+//                            NSLog(@"found error with %@", error);
+//                        }
+//                    }];
                 }];
                 
             }];
@@ -136,6 +137,37 @@
     
 }
 
+-(void)updateContentButtonPressed{
+    NSMutableData *pinData2Chip = [[NSMutableData alloc] init];
+    NSLog(@"confirm button pressed");
+    //    [self.view endEditing:YES];
+    [self.pinField resignFirstResponder];
+    NSString *inputText = [self.contentField text];
+    if (inputText) {
+        NSData *pinData = [inputText dataUsingEncoding:NSStringEncodingConversionAllowLossy];
+        [pinData2Chip appendData:pinData];
+        NSLog(@"pin data is %@", pinData);
+        if ([pinData length] < 8) {
+            NSInteger toPading = 8 - [pinData length];
+            unsigned char toPadingContent[toPading];
+            for (NSInteger i = 0; i < toPading; i++) {
+                toPadingContent[i] = 0x30;
+            }
+            NSData *paddingData = [NSData dataWithBytes:toPadingContent length:toPading];
+            [pinData2Chip appendData:paddingData];
+        }
+        
+        YMSCBCharacteristic *writeValueChara = self.verifyPin.characteristicDict[VALUE_1];
+        NSLog(@"pin data 2 chip is %@", pinData2Chip);
+        [writeValueChara writeValue:pinData2Chip withBlock:^(NSError *error){
+            if(error){
+                NSLog(@"found error for update pin with %@", error);
+            }
+        }];
+    }
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -169,7 +201,13 @@
     updatePinButton.frame = CGRectMake(100, 100, 100, 80);
     [self.view addSubview:updatePinButton];
 
-        
+
+    UIButton *updateContentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [updateContentButton addTarget:self action:@selector(updateContentButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [updateContentButton setTitle:@"UpdateContent" forState:UIControlStateNormal];
+    updateContentButton.frame = CGRectMake(100, 50, 100, 50);
+    [self.view addSubview:updateContentButton];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -185,7 +223,7 @@
         }
             return (newLength == 9) ? NO : YES;
     }
-    return NO;
+    return YES;
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{

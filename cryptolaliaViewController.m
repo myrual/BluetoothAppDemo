@@ -86,7 +86,14 @@
     NSDictionary *advDict = [self.bleDeviceADVArray objectAtIndex:indexPath.row];
 //    NSString *text = bleDevice.cbPeripheral.name;
     NSString *text = @"";
-    cell.textLabel.text = [text stringByAppendingString:[advDict objectForKey:@"kCBAdvDataLocalName"]];
+    NSString *localName = nil;
+    localName =[advDict objectForKey:@"kCBAdvDataLocalName"];
+    if (localName) {
+        cell.textLabel.text = [text stringByAppendingString:localName];
+    }else{
+        cell.textLabel.text = @"NA localName";
+    }
+
     cell.detailTextLabel.text =[bleDevice.cbPeripheral.identifier UUIDString];
 //    NSLog(@"device adv data is %@", advDict);
 //    NSLog(@"device is %@", [bleDevice.cbPeripheral.identifier UUIDString]);
