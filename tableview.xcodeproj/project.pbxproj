@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A0F9B7AA4BC43ECBFA5E326 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C6F8D3FEC24482908A4586 /* libPods.a */; };
 		F2246790185ECE41004C83E5 /* DeviceInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = F224678F185ECE40004C83E5 /* DeviceInfoService.m */; };
+		F22467DA18646C34004C83E5 /* cryptolaliaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F22467D918646C34004C83E5 /* cryptolaliaManager.m */; };
 		F237D9DE18545036008A2C14 /* cryptolaliaReadContent.m in Sources */ = {isa = PBXBuildFile; fileRef = F237D9DD18545036008A2C14 /* cryptolaliaReadContent.m */; };
 		F245F44F184CC97C005467BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F44E184CC97C005467BA /* Foundation.framework */; };
 		F245F451184CC97C005467BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F245F450184CC97C005467BA /* CoreGraphics.framework */; };
@@ -46,6 +47,8 @@
 		D6C6F8D3FEC24482908A4586 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F224678E185ECE40004C83E5 /* DeviceInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceInfoService.h; path = ../DeviceInfoService.h; sourceTree = "<group>"; };
 		F224678F185ECE40004C83E5 /* DeviceInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceInfoService.m; path = ../DeviceInfoService.m; sourceTree = "<group>"; };
+		F22467D818646C34004C83E5 /* cryptolaliaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cryptolaliaManager.h; sourceTree = "<group>"; };
+		F22467D918646C34004C83E5 /* cryptolaliaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cryptolaliaManager.m; sourceTree = "<group>"; };
 		F237D9DC18545036008A2C14 /* cryptolaliaReadContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cryptolaliaReadContent.h; path = ../cryptolaliaReadContent.h; sourceTree = "<group>"; };
 		F237D9DD18545036008A2C14 /* cryptolaliaReadContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cryptolaliaReadContent.m; path = ../cryptolaliaReadContent.m; sourceTree = "<group>"; };
 		F245F44B184CC97C005467BA /* tableview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tableview.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +146,8 @@
 				F245F48A184CCCB7005467BA /* cryptolaliaInputPin.xib */,
 				F245F483184CC9B5005467BA /* cryptolaliaViewController.h */,
 				F245F484184CC9B5005467BA /* cryptolaliaViewController.m */,
+				F22467D818646C34004C83E5 /* cryptolaliaManager.h */,
+				F22467D918646C34004C83E5 /* cryptolaliaManager.m */,
 				F245F485184CC9B5005467BA /* cryptolaliaViewController.xib */,
 				F245F45D184CC97C005467BA /* cryptolaliaAppDelegate.h */,
 				F245F45E184CC97C005467BA /* cryptolaliaAppDelegate.m */,
@@ -337,6 +342,7 @@
 				F245F45F184CC97C005467BA /* cryptolaliaAppDelegate.m in Sources */,
 				F2246790185ECE41004C83E5 /* DeviceInfoService.m in Sources */,
 				F245F48B184CCCB7005467BA /* cryptolaliaInputPin.m in Sources */,
+				F22467DA18646C34004C83E5 /* cryptolaliaManager.m in Sources */,
 				F237D9DE18545036008A2C14 /* cryptolaliaReadContent.m in Sources */,
 				F245F4AB184DB373005467BA /* bleCenterManager.m in Sources */,
 				F2A78E551852CF8B00F87130 /* cryptolaliaCBService.m in Sources */,
